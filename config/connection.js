@@ -1,6 +1,6 @@
-var mysql = require('mysql');
-var dbconfig = require('./database');
-var connection = mysql.createConnection(dbconfig.connection);
+const mysql = require('mysql');
+const dbconfig = require('./database');
+const connection = mysql.createConnection(dbconfig.connection);
 
 const db = async (query) => {
 	connection.query('USE ' + dbconfig.database);

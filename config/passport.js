@@ -1,7 +1,7 @@
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var bcrypt = require('bcrypt-nodejs');
-var db = require('./connection');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcrypt-nodejs');
+const db = require('./connection');
 
 passport.serializeUser(async (user, done) => {
     done(null, user.id);
@@ -27,7 +27,7 @@ passport.use(
         if (users.length) {
             return done(null, false, req.flash('signupMessage', 'This user has already been taken.'));
         } else {
-            var newUserMysql = {
+            let newUserMysql = {
                 name: req.body.name,
                 email: req.body.email,
                 username: username,
@@ -35,7 +35,7 @@ passport.use(
                 age: req.body.age
             };
             
-            var insertQuery = "INSERT INTO users ( name, email, username, password, age ) values ('"+newUserMysql.name+"', '"+newUserMysql.email+"', '"+newUserMysql.username+"', '"+newUserMysql.password+"', '"+newUserMysql.age+"')";
+            let insertQuery = "INSERT INTO users ( name, email, username, password, age ) values ('"+newUserMysql.name+"', '"+newUserMysql.email+"', '"+newUserMysql.username+"', '"+newUserMysql.password+"', '"+newUserMysql.age+"')";
             let result = await db(insertQuery);
             newUserMysql.id = result.insertId;
             
