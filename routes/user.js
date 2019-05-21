@@ -1,21 +1,12 @@
-var express = require('express');
-var router = express.Router();
-var passport = require('../config/passport');
+const express = require('express');
+const router = express.Router();
+const passport = require('../config/passport');
+const userController = require('../app/controller/user');
 
-function isLoggedIn(req, res, next) {
-	if (req.isAuthenticated()){
-		return next();
-	};
-	res.redirect('/user/login');
-};
-
-router.get('/', isLoggedIn, function(req, res){
-	res.render('user/profile', { user: req.user });
-});
-
-router.get('/login', function(req, res){
-	res.render('user/login', { message: req.flash('loginMessage') });
-});
+router.get('/', userController.verify, userController.index);
+router.get('/login', userController.login);
+router.get('/signup', userController.signup);
+router.get('/logout', userController.logout);
 
 router.post('/login', passport.authenticate('local-login', { 
 	failureRedirect: '/user/login',
@@ -29,9 +20,6 @@ router.post('/login', passport.authenticate('local-login', {
 	res.redirect('/');
 });
 
-router.get('/signup', function(req, res){
-	res.render('user/signup', { message: req.flash('signupMessage') });
-});
 
 router.post('/signup', passport.authenticate('local-signup', { 
 	failureRedirect: '/user/signup',
@@ -41,9 +29,5 @@ router.post('/signup', passport.authenticate('local-signup', {
 	res.redirect('/');
 });
 
-router.get('/logout', function(req, res){
-	req.logout();
-	res.redirect('/');
-});
 
 module.exports = router;
