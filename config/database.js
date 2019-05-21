@@ -5,6 +5,5 @@ module.exports = {
         'user': 'root',
         'password': 'root123!@'
     },
-	'database': 'lfsdb',
-    'users_table': 'users'
+	'database': 'lfsdb'
 };

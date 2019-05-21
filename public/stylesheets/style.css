@@ -49,7 +49,6 @@ section .container a {
 }
 
 .box1 {
-	background-color: red;
 	margin: auto;
 	text-align: center;
 	width: 45%;
@@ -60,7 +59,6 @@ section .container a {
 }
 
 .box2 {
-	background-color: red;
 	margin: auto;
 	text-align: center;
 	width: 95%;
@@ -68,6 +66,16 @@ section .container a {
 	box-sizing: border-box;
 	justify-content: space-between;
 	flex-wrap: wrap;
+}
+
+.alert-msg {
+	background-color:#f99;
+	height: auto;
+	width:300px;
+	padding: 5px;
+	margin:auto;
+	border-radius:3px;
+	box-sizing: border-box;
 }
 
 table {

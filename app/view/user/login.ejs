@@ -8,7 +8,7 @@
             <header>
                 <a href="/"><img src="/images/favicon.png" style='width:45px;height:30px;'></a>
                 <div>
-                    <a href="/user/signup">Sign up</a>
+                    <a href="/user/signup">Signup</a>
                 </div>
             </header>
             <nav>
@@ -21,7 +21,7 @@
                             <h4>Faça seu login ou <a href="/user/signup">Cadastre-se</a></h4>
                             <br>
                             <% if (message.length > 0) { %>
-                                <div><%= message %></div>
+                                <div class="alert-msg"><%= message %></div>
                             <% } %>
                             <br><br>Username<br>
                             <input type="text" name="username" autocomplete="off">
