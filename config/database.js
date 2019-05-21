@@ -3,8 +3,8 @@ module.exports = {
     'connection': {
         'host': 'localhost',
         'user': 'root',
-        'password': 'Howigo123@!'
+        'password': 'root123!@'
     },
-	'database': 'my_schema',
+	'database': 'lfsdb',
     'users_table': 'users'
 };
