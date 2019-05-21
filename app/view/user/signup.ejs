@@ -24,17 +24,17 @@
                                 <div><%= message %></div>
                             <% } %>
 							<br> Nome Completo <br>
-							<input type="text" name="name" maxlength="45">
+							<input type="text" name="name" maxlength="45" autocomplete="off">
 							<br><br> E-mail <br>
-							<input type="text" name="email" onblur="validateEmail()" maxlength="45">
+							<input type="text" name="email" onblur="validateEmail()" maxlength="45" autocomplete="off">
 							<br><br> Username <br>
 							<input type="text" name="username" maxlength="45" autocomplete="off">
 							<br><br> Idade <br>
-							<input type="number" name="age" maxlength="2" >
+							<input type="number" name="age" maxlength="2" autocomplete="off" value='0'>
 							<br><br> Senha <br>
 							<input type="password" name="password" maxlength="45" autocomplete="off">
 							<br><br> Confirmar senha <br>
-							<input type="password" name="confirmPassword" maxlength="45">
+							<input type="password" name="confirmPassword" maxlength="45" autocomplete="off">
 							<br><br>
 							<button type="submit">Signup</button>
 							<br><br><br>

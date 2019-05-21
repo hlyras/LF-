@@ -19,7 +19,7 @@ router.get('/login', function(req, res){
 
 router.post('/login', passport.authenticate('local-login', { 
 	failureRedirect: '/user/login',
-	failureFlash: true 
+	failureFlash: true
 }),(req, res) => {
 	if (!req.body.remember) {
 		req.session.cookie.maxAge = 1000 * 60 * 5;
