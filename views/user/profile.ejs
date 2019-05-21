@@ -1,0 +1,38 @@
+<html>
+	<head>
+        <% include ../partials/head %>
+	</head>
+
+	<body>
+		<header>
+			<a href="/"><img src="/images/favicon.png" style='width:45px;height:30px;'></a>
+			<div>
+    			<a onclick="let r = confirm('deseja sair?');if(r==true){window.location.href='/user/logout'}">log-out</a>
+			</div>
+		</header>
+
+		<section>
+			<div class="container">
+				<div class="box2">
+					<h1>Seja bem vindo!</h1><br>
+					<h3>Este é um espaço criado para que você possa deixar suas dúvidas.</h3>
+					<h5>Para facilitar o contato, deixe seu whatsApp com código de localidade, caso contrário a resposta será enviada no seu e-mail.</h3>
+				</div>
+				<div class="box2" id="show-user-box">
+					<div id="show-user">
+						<table border="1" id="user-tbl"></table>
+					</div><br>
+					<p>Como agradecimento por acreditar no projeto, este canal foi criado para te ajudar a se desenvolver de forma gratuita e personalizada. Caso esteja agarrado em algum conceito, tenha algum tipo de dúvida ou seu código está com vida própria e resolveu não compilar, deixe no campo abaixo qual seu problema que tentarei ajudar.</p>
+				</div>
+				<div class="box2">
+					<textarea id="user-doubt" wrap="off"></textarea><br><br>
+					<button onclick="User.sendDoubt(localStorage.getItem('user'))">Enviar dúvida</button>
+				</div>
+			</div>
+		</section>
+	</body>
+	
+	<footer>
+        <% include ../partials/footer %>
+	</footer>
+</html>
