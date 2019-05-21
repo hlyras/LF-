@@ -28,5 +28,4 @@ router.post('/signup', passport.authenticate('local-signup', {
 	res.redirect('/');
 });
 
-
 module.exports = router;
