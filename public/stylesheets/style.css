@@ -78,6 +78,11 @@ section .container a {
 	box-sizing: border-box;
 }
 
+input, select {
+	width:180px;
+	height: 30px;
+}
+
 table {
 	margin: auto;
 }

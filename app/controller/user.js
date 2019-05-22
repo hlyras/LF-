@@ -4,12 +4,12 @@ const userController = {
 	},
 	verify: (req, res, next) => {
 		if (req.isAuthenticated()){ return next() };
-		res.redirect('/user/login');
+		res.redirect('/login');
 	},
 	verifyAcess: async (req, res, acess) => {
 		if(req.isAuthenticated()){
 			for(let i in acess){
-				if(acess==req.user.acess){
+				if(acess[i]==req.user.acess){
 					return true;
 				};
 			};

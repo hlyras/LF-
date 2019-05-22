@@ -16,3 +16,15 @@ CREATE TABLE `lfsdb`.`users` (
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC));
+
+//factory - products
+CREATE TABLE `lfsdb`.`products` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cod` VARCHAR(4) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `type` VARCHAR(20) NOT NULL,
+  `color` VARCHAR(15) NOT NULL,
+  `size` VARCHAR(3) NOT NULL,
+  `amount` INT(5) UNSIGNED NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC));

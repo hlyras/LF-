@@ -4,7 +4,7 @@ const connection = mysql.createConnection(dbconfig.connection);
 
 const db = async (query) => {
 	connection.query('USE ' + dbconfig.database);
-	return new Promise((resolve, reject) => {
+	return new Promise(async (resolve, reject) => {
 		connection.query(query, (err, rows) => {
 			if(!err){
 				resolve(rows);
