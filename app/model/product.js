@@ -12,16 +12,16 @@ const Product = function(){
 
 console.log(db);
 
-// Product.save = function(product){
-// 	return new Promise((resolve, reject) => {
-// 		try {
-// 			let query = "INSERT INTO lfsdb.users (name, type, color, size) VALUES ('"+product.name+"','"+product.type+"','"+product.color+"','"+product.size+"');";
-// 			let user = await db(query);
-// 			resolve(user);
-// 		} catch (err){
-// 			reject(err);
-// 		};
-// 	});
-// };
+Product.save = function(product){
+	return new Promise((resolve, reject) => {
+		try {
+			let query = "INSERT INTO lfsdb.users (name, type, color, size) VALUES ('"+product.name+"','"+product.type+"','"+product.color+"','"+product.size+"');";
+			let user = await db(query);
+			resolve(user);
+		} catch (err){
+			reject(err);
+		};
+	});
+};
 
 module.exports = Product;
