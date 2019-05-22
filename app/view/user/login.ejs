@@ -2,13 +2,12 @@
     <head>
         <% include ../partials/head %>
     </head>
-
     <body>
         <div class="main">
             <header>
                 <a href="/"><img src="/images/favicon.png" style='width:45px;height:30px;'></a>
                 <div>
-                    <a href="/user/signup">Signup</a>
+                    <a href="/signup">Signup</a>
                 </div>
             </header>
             <nav>
@@ -18,7 +17,7 @@
                     <div class="box2">
                         <form action="/user/login" method="post">
                             <br>
-                            <h4>Faça seu login ou <a href="/user/signup">Cadastre-se</a></h4>
+                            <h4>Faça seu login ou <a href="/signup">Cadastre-se</a></h4>
                             <br>
                             <% if (message.length > 0) { %>
                                 <div class="alert-msg"><%= message %></div>

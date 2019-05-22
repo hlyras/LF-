@@ -2,13 +2,12 @@
 	<head>
         <% include ../partials/head %>
 	</head>
-
 	<body>
 		<div class="main">
 			<header>
 				<a href="/"><img src="/images/favicon.png" style='width:45px;height:30px;'></a>
 				<div>
-					<a href="/user/login">Login</a>
+					<a href="/login">Login</a>
 				</div>
 			</header>
 			<nav>
@@ -18,7 +17,7 @@
 					<div class="box2">
 						<form action="/user/signup" method="post">
 							<br>
-							<h4>Cadastre-se ou faça seu <a href="/user/login">login</a></h4>
+							<h4>Cadastre-se ou faça seu <a href="/login">login</a></h4>
 							<br>
                             <% if (message.length > 0) { %>
                                 <div class="alert-msg"><%= message %></div>
@@ -45,7 +44,6 @@
 		</div>
 		<!-- <button onclick="window.location.href='/users'">Usuários</button> -->
 	</body>
-	
 	<footer>
         <% include ../partials/footer %>
 	</footer>
