@@ -17,6 +17,12 @@ $(function(){
 				product_size: size
 			},
 			success: function(response){
+				if(response.unauthorized){
+					alert(response.unauthorized);
+					window.location.href = '/login';
+					return;
+				};
+				
 				if(response.msg){
 					alert(response.msg);
 					document.getElementById("product-save-btn").disabled = false;

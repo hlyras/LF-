@@ -10,7 +10,7 @@ const productController = {
 	},
 	save: async (req, res) => {
 		if(!await userController.verifyAcess(req, res, ['a1'])){
-			return response.send({ unauthorized: "Usuário não autorizado."});
+			return res.send({ unauthorized: "Usuário não autorizado."});
 		};
 
 		const product = {
