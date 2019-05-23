@@ -17,11 +17,11 @@ const userController = {
 		return false;
 	},
 	login: (req, res) => {
-		req.session.cookie.maxAge = 1000 * 60 * 5;
+		req.session.cookie.maxAge = 1000 * 60 * 30;
 		res.redirect('/');
 	},
 	signup: (req, res) => {
-		req.session.cookie.maxAge = 1000 * 60 * 5;
+		req.session.cookie.maxAge = 1000 * 60 * 30;
 		res.redirect('/');
 	}
 };

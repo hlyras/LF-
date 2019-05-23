@@ -86,8 +86,8 @@ section .container a {
 	box-sizing: border-box;
 }
 
-input, select, button {
-	width:180px;
+.pattern-btn {
+	width:250px;
 	height: 30px;
 }
 
