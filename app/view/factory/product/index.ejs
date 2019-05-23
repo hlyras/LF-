@@ -13,37 +13,36 @@
 		<section>
 			<div class="container">
 				<div class="box1">
-					<form action="/factory/product/save" method="post">
-						<input type="text" name="product_cod" placeholder="Cód do produto" autocomplete="off" maxlength="4">
-						<br>
-						<select name="product_type" autocomplete="off">
-							<option value="">Tipo</option>
-							<option value="Colete">Colete</option>
-							<option value="Peça_mod">Peça modular</option>
-							<option value="Coldre">Coldre</option>
-							<option value="Bornal">Bornal</option>
-						</select>
-						<input type="text" name="product_name" placeholder="Nome do produto" autocomplete="off" maxlength="44">
-						<br>
-						<select name="product_color" autocomplete="off">
-							<option value="">Cor</option>
-							<option value="pt">Preto</option>
-							<option value="vd">Verde</option>
-							<option value="tan">Tan</option>
-							<option value="ptcamo">Preto camo</option>
-							<option value="vdcamo">Verde camo</option>
-						</select>
-						<select name="product_size" autocomplete="off">
-							<option value="">Tamanho</option>
-							<option value="PP">PP</option>
-							<option value="P">P</option>
-							<option value="M">M</option>
-							<option value="G">G</option>
-							<option value="GG">GG</option>
-						</select>
-						<br><br>
-						<input type="submit" value="Cadastrar">
-					</form>
+					<h3>Cadastro de produtos</h3>
+					<br>
+					<input type="number" id="product_cod" placeholder="Cód do produto" min="1" max="9999" autocomplete="off">
+					<select id="product_type" autocomplete="off">
+						<option value="">Tipo</option>
+						<option value="Colete">Colete</option>
+						<option value="Peça_mod">Peça modular</option>
+						<option value="Coldre">Coldre</option>
+						<option value="Bornal">Bornal</option>
+					</select>
+					<br>
+					<input type="text" id="product_name" placeholder="Nome do produto" autocomplete="off" maxlength="15">
+					<select id="product_color" autocomplete="off">
+						<option value="">Cor</option>
+						<option value="pt">Preto</option>
+						<option value="vd">Verde</option>
+						<option value="tan">Tan</option>
+						<option value="ptcamo">Preto camo</option>
+						<option value="vdcamo">Verde camo</option>
+					</select>
+					<br>
+					<select id="product_size" autocomplete="off">
+						<option value="">Tamanho</option>
+						<option value="PP">PP</option>
+						<option value="P">P</option>
+						<option value="M">M</option>
+						<option value="G">G</option>
+						<option value="GG">GG</option>
+					</select>
+					<input type="button" id="product-save-btn" value="Cadastrar">
 				</div>
 				<div class="box1">
 					div2

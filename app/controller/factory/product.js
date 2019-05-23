@@ -21,8 +21,17 @@ const productController = {
 			size: req.body.product_size
 		};
 
-		await Product.save(product);
-		res.redirect('/factory/product');
+		let row = await Product.save(product);
+		let user = await Product.findById(row.insertId);
+		res.send({ user: user });
+	},
+	list: async (req, res) => {
+		if(!await userController.verifyAcess(req, res, ['a1'])){
+			return res.redirect('/login');
+		};
+
+		let users = Product.list();
+		res.send({ users: users });	
 	}
 };
 

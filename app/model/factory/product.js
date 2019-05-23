@@ -24,4 +24,20 @@ Product.save = async (product) => {
 	});
 };
 
+Product.list = async () => {
+	return new Promise(async (resolve) => {
+		let query = "SELECT * FROM lfsdb.products;";
+		let users = await db(query);
+		resolve(users);
+	});
+};
+
+Product.findById = async (id) => {
+	return new Promise(async (resolve) => {
+		let query = "SELECT * FROM lfsdb.products WHERE id='"+id+"';";
+		let user = await db(query);
+		resolve(user);
+	});
+};
+
 module.exports = Product;
