@@ -119,7 +119,7 @@ $(function(){
 				html += "</tr>";
 				html += "</table>";
 				document.getElementById('show-product-box').innerHTML = html;
-				document.getElementById('show-product-box').style.visibility = 'visible';
+				document.getElementById('show-product-box').style.display = 'block';
 			}
 		});
 	});
