@@ -6,6 +6,8 @@ const productController = {
 		if(!await userController.verifyAcess(req, res, ['a1'])){
 			return res.redirect('/login');
 		};
+
+		let products = Product.list();
 		res.render('factory/product/index');
 	},
 	save: async (req, res) => {
@@ -39,8 +41,32 @@ const productController = {
 			return response.send({ unauthorized: "Usuário não autorizado."});
 		};
 
-		let users = Product.list();
-		res.send({ users: users });	
+		let products = Product.list();
+		res.send({ products: products });	
+	},
+	filter: async (req, res) => {
+		if(!await userController.verifyAcess(req, res, ['a1'])){
+			return response.send({ unauthorized: "Usuário não autorizado."});
+		};
+
+		const product = {
+			type: req.body.product_type,
+			color: req.body.product_color
+		};
+
+		let products = await Product.filter(product);
+		if(!products.length){
+			return res.send({ msg: 'Não há produtos cadastrados.'})
+		};
+		res.send({ products: products });
+	},
+	show: async (req, res) => {
+		if(!await userController.verifyAcess(req, res, ['a1'])){
+			return response.send({ unauthorized: "Usuário não autorizado."});
+		};
+
+		let product = await Product.findByCod(req.body.product_cod);
+		res.send({ product: product });		
 	}
 };
 

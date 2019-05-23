@@ -15,8 +15,8 @@
 				<div class="box1">
 					<h3>Cadastro de produtos</h3>
 					<br>
-					<input type="number" class="pattern-btn" id="product_cod" placeholder="Cód do produto" min="1" max="9999" autocomplete="off">
-					<select id="product_type" class="pattern-btn" autocomplete="off">
+					<input type="number" class="big-pattern-btn" id="product_cod" placeholder="Cód do produto" min="1" max="9999" autocomplete="off">
+					<select id="product_type" class="big-pattern-btn" autocomplete="off">
 						<option value="">Tipo</option>
 						<option value="Colete">Colete</option>
 						<option value="Peça_mod">Peça modular</option>
@@ -24,8 +24,8 @@
 						<option value="Bornal">Bornal</option>
 					</select>
 					<br>
-					<input type="text" class="pattern-btn" id="product_name" placeholder="Nome do produto" autocomplete="off" maxlength="15">
-					<select id="product_color" class="pattern-btn" autocomplete="off">
+					<input type="text" class="big-pattern-btn" id="product_name" placeholder="Nome do produto" autocomplete="off" maxlength="15">
+					<select id="product_color" class="big-pattern-btn" autocomplete="off">
 						<option value="">Cor</option>
 						<option value="pt">Preto</option>
 						<option value="vd">Verde</option>
@@ -34,7 +34,7 @@
 						<option value="vdcamo">Verde camo</option>
 					</select>
 					<br>
-					<select id="product_size" class="pattern-btn" autocomplete="off">
+					<select id="product_size" class="big-pattern-btn" autocomplete="off">
 						<option value="">Tamanho</option>
 						<option value="ST">Sem tamanho</option>
 						<option value="PP">PP</option>
@@ -43,10 +43,42 @@
 						<option value="G">G</option>
 						<option value="GG">GG</option>
 					</select>
-					<input type="button" class="pattern-btn" id="product-save-btn" value="Cadastrar">
+					<input type="button" class="big-pattern-btn" id="product-save-btn" value="Cadastrar">
 				</div>
 				<div class="box1">
-					div2
+					<h3>Produtos cadastrados</h3>
+					<br>
+					<select id="src_product_type" class="small-pattern-btn" autocomplete="off">
+						<option value="">Tipo</option>
+						<option value="Colete">Colete</option>
+						<option value="Peça_mod">Peça modular</option>
+						<option value="Coldre">Coldre</option>
+						<option value="Bornal">Bornal</option>
+					</select>
+					<select id="src_product_color" class="small-pattern-btn" autocomplete="off">
+						<option value="">Cor</option>
+						<option value="pt">Preto</option>
+						<option value="vd">Verde</option>
+						<option value="tan">Tan</option>
+						<option value="ptcamo">Preto camo</option>
+						<option value="vdcamo">Verde camo</option>
+					</select>
+					<input type="button" class="small-pattern-btn" id="product-filter-btn" value="Filtrar">
+					<br><br>
+					<table>
+						<tr>
+							<td>Cód</td>
+							<td>Tipo</td>
+							<td>Nome</td>
+							<td>Tamanho</td>
+							<td>Cor</td>
+						</tr>
+						<tbody id="main-product-tbody">
+						</tbody>
+					</table>
+				</div>
+				<div class="box2" id="show-product-box" style="visibility:hidden;">
+					
 				</div>
 			</div>
 		</section>

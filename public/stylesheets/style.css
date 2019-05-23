@@ -85,21 +85,37 @@ section .container a {
 	border-radius:3px;
 	box-sizing: border-box;
 }
+.small-pattern-btn {
+	width:100px;
+	height: 30px;
+}
 
-.pattern-btn {
+.medium-pattern-btn {
+	width:175px;
+	height: 30px;
+}
+
+.big-pattern-btn {
 	width:250px;
 	height: 30px;
 }
 
 table {
 	margin: auto;
+	border: 1px solid #ccc;
 }
+
 
 table tr td {
 	text-align: center;
-	padding: 1px;
+	padding: 2px;
 	font-size: 12px;
 	word-break: break-all;
+	border: 1px solid #ccc;
+}
+
+table a {
+	font-weight: bold;
 }
 
 textarea {

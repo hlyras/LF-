@@ -9,5 +9,7 @@ router.get('/', userController.verify, (req, res) => {
 
 router.get('/product', productController.index);
 router.post('/product/save', productController.save);
+router.post('/product/filter', productController.filter);
+router.post('/product/show', productController.show);
 
 module.exports = router;

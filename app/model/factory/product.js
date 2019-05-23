@@ -19,32 +19,49 @@ Product.save = async (product) => {
 			+product.color+"','"
 			+product.size+"');";
 
-		let user = await db(query);
-		resolve(user);
+		let row = await db(query);
+		resolve(row);
 	});
 };
 
 Product.list = async () => {
 	return new Promise(async (resolve) => {
 		let query = "SELECT * FROM lfsdb.products;";
-		let users = await db(query);
-		resolve(users);
+		let rows = await db(query);
+		resolve(rows);
 	});
 };
 
 Product.findById = async (id) => {
 	return new Promise(async (resolve) => {
 		let query = "SELECT * FROM lfsdb.products WHERE id='"+id+"';";
-		let user = await db(query);
-		resolve(user);
+		let row = await db(query);
+		resolve(row);
 	});
 };
 
 Product.findByCod = async (cod) => {
 	return new Promise(async (resolve) => {
 		let query = "SELECT * FROM lfsdb.products WHERE cod='"+cod+"';";
-		let user = await db(query);
-		resolve(user);
+		let row = await db(query);
+		resolve(row);
+	});
+};
+
+Product.filter = async (product) => {
+	return new Promise(async (resolve) => {
+		if(product.type && product.color){
+			var query = "SELECT * FROM lfsdb.products WHERE type='"+product.type+"' AND color='"+product.color+"' ORDER BY cod ASC;";
+		} else if(product.type && !product.color){
+			var query = "SELECT * FROM lfsdb.products WHERE type='"+product.type+"' ORDER BY cod ASC;";
+		} else if(!product.type && product.color){
+			var query = "SELECT * FROM lfsdb.products WHERE color='"+product.color+"' ORDER BY cod ASC;";
+		} else if(!product.type && !product.color){
+			var query = "SELECT * FROM lfsdb.products ORDER BY cod ASC;";
+		};
+
+		let rows = await db(query);
+		resolve(rows);
 	});
 };
 
