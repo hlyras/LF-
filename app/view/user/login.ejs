@@ -18,11 +18,11 @@
                         <form action="/user/login" method="post">
                             <br>
                             <h4>Faça seu login ou <a href="/signup">Cadastre-se</a></h4>
-                            <br>
+                            <p class="underline">_________</p>
                             <% if (message.length > 0) { %>
                                 <div class="alert-msg"><%= message %></div>
                             <% } %>
-                            <br><br>Username<br>
+                            <br>Username<br>
                             <input type="text" name="username" autocomplete="off">
                             <br><br> Senha <br>
                             <input type="password" name="password" autocomplete="off">

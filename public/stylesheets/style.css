@@ -19,12 +19,10 @@ header a {
 a {
 	text-decoration: none;
 	cursor: pointer;
-	font-weight: bold;
 }
 
 section {
 	width: 98%;
-	min-height: 400px;
 	height: auto;
 	float: left;
 	text-align: center;
@@ -45,27 +43,37 @@ section .container {
 
 section .container a {
 	color: black;
-	text-decoration: underline;
 }
 
 .box1 {
-	margin: auto;
 	text-align: center;
-	width: 45%;
+	width: 49%;
 	padding: 10px;
+	margin-bottom: 20px;
 	box-sizing: border-box;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	
+	border: 2px solid #ccc;
+	border-radius: 10px;
 }
 
 .box2 {
 	margin: auto;
 	text-align: center;
-	width: 95%;
+	width: 100%;
 	padding: 10px;
+	margin-bottom: 20px;
 	box-sizing: border-box;
 	justify-content: space-between;
 	flex-wrap: wrap;
+
+	border: 2px solid #ccc;
+	border-radius: 10px;
+}
+
+.underline {
+	color: #ccc;
 }
 
 .alert-msg {
@@ -78,7 +86,7 @@ section .container a {
 	box-sizing: border-box;
 }
 
-input, select {
+input, select, button {
 	width:180px;
 	height: 30px;
 }
@@ -106,38 +114,18 @@ footer {
 	width: 100%;
 	height: auto;
 	font-size: 0.8em;
-}
-
-footer .cells {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-}
-
-footer .cell {
-	text-align: center;
-	width: 32%;
-	height: auto;
-	padding: 10px;
-	margin: 1%;
-	margin-bottom: 10px;
-	color: white;
-}
-
-footer .cell a {
-	color: white;
+	bottom: 0;
+	position: fixed;
 }
 
 footer .copyright {
+	padding: 5px;
 	text-align: center;
 	width: 100%;
-	height: 40px;
 	color: white;
 }
 
 @media (max-width: 380px) {
- /* adicionar aqui os novos estilos para mobile */
-
 	header {
 		font-size: 1.3rem;
 	}
@@ -145,8 +133,71 @@ footer .copyright {
 	.box1 {
 		margin: auto;
 		text-align: center;
-		width: 95%;
+		width: 100%;
 		padding: 10px;
+		box-sizing: border-box;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	footer {
+		font-size: 0.68rem;
+	}
+}
+
+@media (max-width: 440px) {
+	header {
+		font-size: 1.3rem;
+	}
+
+	.box1 {
+		margin: auto;
+		text-align: center;
+		width: 100%;
+		padding: 10px;
+		margin-bottom: 20px;
+		box-sizing: border-box;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	footer {
+		font-size: 0.68rem;
+	}
+}
+
+@media (max-width: 780px) {
+	header {
+		font-size: 1.3rem;
+	}
+
+	.box1 {
+		margin: auto;
+		text-align: center;
+		width: 100%;
+		padding: 10px;
+		margin-bottom: 20px;
+		box-sizing: border-box;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	footer {
+		font-size: 0.68rem;
+	}
+}
+
+@media (max-width: 800px) {
+	header {
+		font-size: 1.3rem;
+	}
+
+	.box1 {
+		margin: auto;
+		text-align: center;
+		width: 100%;
+		padding: 10px;
+		margin-bottom: 20px;
 		box-sizing: border-box;
 		justify-content: space-between;
 		flex-wrap: wrap;

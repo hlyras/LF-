@@ -22,9 +22,7 @@ const productController = {
 		};
 
 		var row = await Product.findByCod(product.cod);
-		if(row.length){
-			return res.send({ msg: 'Este código de produto já está cadastrado.' });
-		};
+		if(row.length){return res.send({ msg: 'Este código de produto já está cadastrado.' })};
 
 		if(!product.cod || product.cod < 1 || product.cod > 9999){return res.send({ msg: 'Código de produto inválido.' })};
 		if(!product.name || product.name.length > 15){return res.send({ msg: 'Preencha o nome do produto.' })};
