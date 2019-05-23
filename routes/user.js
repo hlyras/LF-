@@ -6,12 +6,12 @@ const userController = require('../app/controller/user');
 router.get('/', userController.verify, userController.index);
 
 router.post('/login', passport.authenticate('local-login', { 
-	failureRedirect: '/user/login',
+	failureRedirect: '/login',
 	failureFlash: true
 }), userController.login);
 
 router.post('/signup', passport.authenticate('local-signup', { 
-	failureRedirect: '/user/signup',
+	failureRedirect: '/signup',
 	failureFlash: true 
 }), userController.signup);
 
