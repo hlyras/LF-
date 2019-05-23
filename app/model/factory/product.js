@@ -40,4 +40,12 @@ Product.findById = async (id) => {
 	});
 };
 
+Product.findByCod = async (cod) => {
+	return new Promise(async (resolve) => {
+		let query = "SELECT * FROM lfsdb.products WHERE cod='"+cod+"';";
+		let user = await db(query);
+		resolve(user);
+	});
+};
+
 module.exports = Product;
