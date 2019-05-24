@@ -117,8 +117,8 @@ $(function(){
 	});
 
 	$('table').on('click', '#product-show-btn', function(){
-		var rowEl = $(this).closest('tr');
-		var cod = rowEl.find('#src_product_cod').text();
+		let rowEl = $(this).closest('tr');
+		let cod = rowEl.find('#src_product_cod').text();
 
 		$.ajax({
 			url: '/factory/product/show',

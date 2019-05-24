@@ -4,15 +4,14 @@
 	</head>
 	<body>
 		<header>
-			<a href="/"><img src="/images/favicon.png" style='width:45px;height:30px;'></a>
+			<a href="/"><img src="/images/favicon.png" class="favicon"></a>
 			<div>
     			<a onclick="let r = confirm('deseja sair?');if(r==true){window.location.href='/logout'}">Logout</a>
 			</div>
 		</header>
-
 		<section>
 			<div class="container">
-				<div class="box2">
+				<div class="box-1">
 					<table border='1'>
 						<tr>
 							<td>Nome</td>
@@ -28,7 +27,7 @@
 						</tr>
 					</table>
 				</div>
-				<div class="box1">
+				<div class="box-2">
 					<table border='1'>
 						<tr>
 							<td>Nome</td>
@@ -44,7 +43,7 @@
 						</tr>
 					</table>
 				</div>
-				<div class="box1">
+				<div class="box-2">
 					<table border='1'>
 						<tr>
 							<td>Nome</td>
@@ -63,7 +62,6 @@
 			</div>
 		</section>
 	</body>
-	
 	<footer>
         <% include ../partials/footer %>
 	</footer>

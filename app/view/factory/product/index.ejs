@@ -4,19 +4,18 @@
 	</head>
 	<body>
 		<header>
-			<a href="/"><img src="/images/favicon.png" style='width:45px;height:30px;'></a>
+			<a href="/"><img src="/images/favicon.png" class="favicon"></a>
 			<div>
     			<a onclick="let r = confirm('deseja sair?');if(r==true){window.location.href='/logout'}">Logout</a>
 			</div>
 		</header>
-
 		<section>
 			<div class="container">
-				<div class="box1">
-					<h3>Cadastro de produtos</h3>
+				<div class="box-2">
+					<strong class="underline">Cadastro de produtos</strong>
 					<br>
-					<input type="number" class="big-pattern-btn" id="product_cod" placeholder="Cód do produto" min="1" max="9999" autocomplete="off">
-					<select id="product_type" class="big-pattern-btn" autocomplete="off">
+					<input type="number" class="btn-generic-big" id="product_cod" placeholder="Cód do produto" min="1" max="9999" autocomplete="off">
+					<select id="product_type" class="btn-generic-big" autocomplete="off">
 						<option value="">Tipo</option>
 						<option value="Colete">Colete</option>
 						<option value="Peça_mod">Peça modular</option>
@@ -24,8 +23,8 @@
 						<option value="Bornal">Bornal</option>
 					</select>
 					<br>
-					<input type="text" class="big-pattern-btn" id="product_name" placeholder="Nome do produto" autocomplete="off" maxlength="15">
-					<select id="product_color" class="big-pattern-btn" autocomplete="off">
+					<input type="text" class="btn-generic-big" id="product_name" placeholder="Nome do produto" autocomplete="off" maxlength="15">
+					<select id="product_color" class="btn-generic-big" autocomplete="off">
 						<option value="">Cor</option>
 						<option value="pt">Preto</option>
 						<option value="vd">Verde</option>
@@ -34,7 +33,7 @@
 						<option value="vdcamo">Verde camo</option>
 					</select>
 					<br>
-					<select id="product_size" class="big-pattern-btn" autocomplete="off">
+					<select id="product_size" class="btn-generic-big" autocomplete="off">
 						<option value="">Tamanho</option>
 						<option value="ST">Sem tamanho</option>
 						<option value="PP">PP</option>
@@ -43,10 +42,10 @@
 						<option value="G">G</option>
 						<option value="GG">GG</option>
 					</select>
-					<input type="button" class="big-pattern-btn" id="product-save-btn" value="Cadastrar">
+					<input type="button" class="btn-generic-big" id="product-save-btn" value="Cadastrar">
 				</div>
-				<div class="box1">
-					<h3>Produtos cadastrados</h3>
+				<div class="box-2">
+					<strong class="underline">Produtos cadastrados</strong>
 					<br>
 					<select id="src_product_type" class="small-pattern-btn" autocomplete="off">
 						<option value="">Tipo</option>
@@ -76,13 +75,12 @@
 						<tbody id="main-product-tbody">
 						</tbody>
 					</table>
+					<br>
 					<button id="productPrevious" class="button small alt" autocomplete="off" disabled>&lsaquo;&lsaquo;</button>
                     <span id="productPageNumber"></span>
                     <button id="productNext" class="button small alt" autocomplete="off" disabled>&rsaquo;&rsaquo;</button>
 				</div>
-				<div class="box2" id="show-product-box" style="display:none;">
-					
-				</div>
+				<div class="box-1" id="show-product-box" style="display:none;"></div>
 			</div>
 		</section>
 	</body>

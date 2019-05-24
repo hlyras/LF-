@@ -5,7 +5,7 @@
 	<body>
 		<div class="main">
 			<header>
-				<a href="/"><img src="/images/favicon.png" style='width:45px;height:30px;'></a>
+				<a href="/"><img src="/images/favicon.png" class="favicon"></a>
 				<div>
 					<a href="/login">Login</a>
 				</div>
@@ -14,29 +14,27 @@
 			</nav>
 			<section>
 				<div class="container">
-					<div class="box2">
+					<div class="box-1">
 						<form action="/user/signup" method="post">
-							<br>
-							<h4>Cadastre-se ou faça seu <a href="/login">login</a></h4>
-                            <p class="underline">_________</p>
-                            <% if (message.length > 0) { %>
-                                <div class="alert-msg"><%= message %></div>
-                            <% } %>
-							<br> Nome Completo <br>
-							<input type="text" class="pattern-btn" name="name" maxlength="45" autocomplete="off">
-							<br><br> E-mail <br>
-							<input type="text" class="pattern-btn" name="email" onblur="validateEmail()" maxlength="45" autocomplete="off">
-							<br><br> Username <br>
-							<input type="text" class="pattern-btn" name="username" maxlength="45" autocomplete="off">
-							<br><br> Idade <br>
-							<input type="number" class="pattern-btn" name="age" maxlength="2" autocomplete="off" value='0'>
-							<br><br> Senha <br>
-							<input type="password" class="pattern-btn" name="password" maxlength="45" autocomplete="off">
-							<br><br> Confirmar senha <br>
-							<input type="password" class="pattern-btn" name="confirmPassword" maxlength="45" autocomplete="off">
-							<br><br>
-							<button type="submit">Signup</button>
-							<br><br><br>
+							<div class="menu-box">
+								<h4 class="underline">Cadastre-se ou faça seu <a href="/login">login</a></h4>
+	                            <% if (message.length > 0) { %>
+	                                <div class="alert-msg"><%= message %></div>
+	                            <% } %>
+								Nome Completo
+								<input type="text" class="btn-generic-menu" name="name" maxlength="45" autocomplete="off">
+								E-mail
+								<input type="text" class="btn-generic-menu" name="email" onblur="validateEmail()" maxlength="45" autocomplete="off">
+								Username
+								<input type="text" class="btn-generic-menu" name="username" maxlength="45" autocomplete="off">
+								Idade
+								<input type="number" class="btn-generic-menu" name="age" maxlength="2" autocomplete="off" value='0'>
+								Senha
+								<input type="password" class="btn-generic-menu" name="password" maxlength="45" autocomplete="off">
+								Confirmar senha
+								<input type="password" class="btn-generic-menu" name="confirmPassword" maxlength="45" autocomplete="off">
+								<button type="submit" class="btn-generic-menu">Signup</button>
+							</div>
 						</form>
 					</div>
 				</div>

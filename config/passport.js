@@ -25,7 +25,7 @@ passport.use(
         let users = await db(query);
         
         if (users.length) {
-            return done(null, false, req.flash('signupMessage', 'This user has already been taken.'));
+            return done(null, false, req.flash('signupMessage', 'Este usuário já existe.'));
         } else {
             let newUserMysql = {
                 name: req.body.name,
@@ -56,11 +56,11 @@ passport.use(
         let users = await db(query);
         
         if (!users.length){
-            return done(null, false, req.flash('loginMessage', 'user not found.'))
+            return done(null, false, req.flash('loginMessage', 'Usuário não encontrado.'))
         };
         
         if (!bcrypt.compareSync(password, users[0].password)){
-            return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+            return done(null, false, req.flash('loginMessage', 'Senha inválida.'));
         };
         
         return done(null, users[0]);

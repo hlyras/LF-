@@ -5,19 +5,21 @@
     <body>
         <div class="container">
             <header>
-                <a href="/"><img src="/images/favicon.png" style='width:45px;height:30px;'></a>
+                <a href="/"><img src="/images/favicon.png" class="favicon"></a>
                 <div>
                     <a href="/user">Profile</a>
                     | <a onclick="let r = confirm('deseja sair?');if(r==true){window.location.href='/logout'}">Logout</a>
                 </div>
             </header>
-            
             <section>
                 <div class="container">
-                    <div class="box1">
-                        <a style="font-weight:bold" onclick="window.location.href='/factory'">Fábrica</a>
-                        <p class="underline">__________</p><br>
-                        <a onclick="window.location.href='/factory/product'">Produtos</a>
+                    <div class="box-1">
+                        <div class="menu-box">
+                            <strong class="btn-menu underline" onclick="window.location.href=''">Administração</strong>
+                            <strong class="btn-menu underline" onclick="window.location.href='/factory'">Fábrica</strong>
+                            <strong class="btn-menu underline" onclick="window.location.href=''">Loja</strong>
+                            <strong class="btn-menu underline" onclick="window.location.href=''">Recursos humanos</strong>
+                        </div>
                     </div>
                 </div>
             </section>

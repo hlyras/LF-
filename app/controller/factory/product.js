@@ -3,15 +3,13 @@ const Product = require('../../model/factory/product');
 
 const productController = {
 	index: async (req, res) => {
-		if(!await userController.verifyAcess(req, res, ['a1'])){
+		if(!await userController.verifyAcess(req, res, ['p1','g1','c1','dv'])){
 			return res.redirect('/login');
 		};
-
-		let products = Product.list();
 		res.render('factory/product/index');
 	},
 	save: async (req, res) => {
-		if(!await userController.verifyAcess(req, res, ['a1'])){
+		if(!await userController.verifyAcess(req, res, ['g1','dv'])){
 			return res.send({ unauthorized: "Usuário não autorizado."});
 		};
 
@@ -37,7 +35,7 @@ const productController = {
 		res.send({ done: 'Produto cadastrado com sucesso!', product: createdProduct });
 	},
 	list: async (req, res) => {
-		if(!await userController.verifyAcess(req, res, ['a1'])){
+		if(!await userController.verifyAcess(req, res, ['p1','g1','c1','dv'])){
 			return response.send({ unauthorized: "Usuário não autorizado."});
 		};
 
@@ -45,7 +43,7 @@ const productController = {
 		res.send({ products: products });	
 	},
 	filter: async (req, res) => {
-		if(!await userController.verifyAcess(req, res, ['a1'])){
+		if(!await userController.verifyAcess(req, res, ['p1','g1','c1','dv'])){
 			return response.send({ unauthorized: "Usuário não autorizado."});
 		};
 
@@ -58,7 +56,7 @@ const productController = {
 		res.send({ products: products });
 	},
 	show: async (req, res) => {
-		if(!await userController.verifyAcess(req, res, ['a1'])){
+		if(!await userController.verifyAcess(req, res, ['p1','g1','c1','dv'])){
 			return response.send({ unauthorized: "Usuário não autorizado."});
 		};
 
