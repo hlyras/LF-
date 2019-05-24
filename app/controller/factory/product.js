@@ -55,9 +55,6 @@ const productController = {
 		};
 
 		let products = await Product.filter(product);
-		if(!products.length){
-			return res.send({ msg: 'Não há produtos cadastrados.'})
-		};
 		res.send({ products: products });
 	},
 	show: async (req, res) => {
