@@ -60,22 +60,15 @@ $(function(){
 					return;
 				};
 
-				// document.getElementById('main-product-tbody').innerHTML = "";
-				// let html = "";
-				// response.products.forEach((product) => {
-				// });
-				// document.getElementById('main-product-tbody').innerHTML = html;
-				// document.getElementById("product-filter-btn").disabled = false;
-
-				var pageSize = 5;
-				var page = 0;
-				var products = response.products;
+				let pageSize = 5;
+				let page = 0;
+				let products = response.products;
 
 				function paging(){
 					html = "";
 					html += "<table>";
-					if(products){
-					    for (var i = page * pageSize; i < products.length && i < (page + 1) *  pageSize; i++) {
+					if(products.length){
+					    for (let i = page * pageSize; i < products.length && i < (page + 1) * pageSize;i++){
 							html += "<tr>";
 							html += "<td id='src_product_cod' hidden>"+products[i].cod+"</td>";
 							html += "<td><a id='product-show-btn'>"+products[i].cod+"</a></td>";
@@ -89,10 +82,12 @@ $(function(){
 						document.getElementById('main-product-tbody').innerHTML = html;
 					} else {
 						document.getElementById('main-product-tbody').innerHTML = html;
-						alert('Nenhum dado encontrado.');
+						alert('Nenhum produto encontrado.');
 					};
 				    $('#productPageNumber').text('' + (page + 1) + ' de ' + Math.ceil(products.length / pageSize));
 				};
+
+				document.getElementById("product-filter-btn").disabled = false;
 
 				function saleButtonsPaging(){
 				    $('#productNext').prop('disabled', products.length <= pageSize || page >= products.length / pageSize - 1);
@@ -101,14 +96,14 @@ $(function(){
 
 				$(function(){
 				    $('#productNext').click(function(){
-				        if (page < products.length / pageSize - 1) {
+				        if(page < products.length / pageSize - 1){
 				            page++;
 				            paging();
 				            saleButtonsPaging();
 				        };
 				    });
 				    $('#productPrevious').click(function(){
-				        if (page > 0) {
+				        if(page > 0){
 				            page--;
 				            paging();
 				            saleButtonsPaging();
@@ -117,7 +112,6 @@ $(function(){
 				    paging();
 				    saleButtonsPaging();
 				});
-
 			}
 		});
 	});
