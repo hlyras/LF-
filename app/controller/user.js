@@ -1,4 +1,5 @@
 const User = require('../model/user');
+const Jobs = require('../model/job');
 
 const userController = {
 	index: (req, res) => {
@@ -27,18 +28,19 @@ const userController = {
 		res.redirect('/');
 	},
 	list: async (req, res) => {
-		if(!await userController.verifyAcess(req, res, ['p1','g1','dv'])){
+		if(!await userController.verifyAcess(req, res, ['prp','grf','dvp'])){
 			return res.send({ unauthorized: "Usuário não autorizado."});
 		};
 		let users = await User.list();
 		res.send({ users: users });
 	},
 	show: async (req, res) => {
-		if(!await userController.verifyAcess(req, res, ['p1','g1','dv'])){
+		if(!await userController.verifyAcess(req, res, ['prp','grf','dvp'])){
 			return res.send({ unauthorized: "Usuário não autorizado."});
 		};
+
 		let user = await User.findById(req.body.user_id);
-		res.send({ user: user });
+		res.send({ user: user, jobs: Jobs });
 	}
 };
 

@@ -17,6 +17,6 @@ const homeController = {
 		req.logout();
 		res.redirect('/');
 	}
-}
+};
 
 module.exports = homeController;
