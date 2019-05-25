@@ -25,7 +25,7 @@ const adminController = {
 		if(!await User.updateAcess(user)){
 			return res.send({ err: 'Ocorreu um erro, favor contatar o suporte'});
 		};
-		res.send({ done: "Privilégio atualizado com sucesso." })
+		res.send({ done: "Privilégio atualizado com sucesso." });
 	}
 };
 

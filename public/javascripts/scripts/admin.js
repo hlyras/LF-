@@ -16,14 +16,13 @@ $(function(){
 				let users = response.users;
 
 				function paging(){
-					html = "<table><tr><td>Id</td><td>Nome</td><td>E-mail</td><td>Username</td><td>Acesso</td></tr>";
+					html = "<table><tr><td>Id</td><td>Nome</td><td>Username</td><td>Acesso</td></tr>";
 					if(users.length){
 					    for (let i = page * pageSize; i < users.length && i < (page + 1) * pageSize;i++){
 							html += "<tr>";
 							html += "<td id='src_user_id' hidden>"+users[i].id+"</td>";
 							html += "<td><a id='user-show-btn'>"+users[i].id+"</a></td>";
 							html += "<td>"+users[i].name+"</td>";
-							html += "<td>"+users[i].email+"</td>";
 							html += "<td>"+users[i].username+"</td>";
 							html += "<td>"+users[i].acess+"</td>";
 							html += "<td><a id='user-select-btn'>Alterar</a></td>";
