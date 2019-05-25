@@ -9,6 +9,7 @@ router.get('/signup', homeController.signup);
 router.get('/logout', homeController.logout);
 
 router.use('/user', require('./user'));
+router.use('/admin', require('./admin'));
 router.use('/factory', require('./factory'));
 
 module.exports = router;

@@ -65,8 +65,7 @@ $(function(){
 				let products = response.products;
 
 				function paging(){
-					html = "";
-					html += "<table>";
+					html = "<tr><td>Cód</td><td>Tipo</td><td>Nome</td><td>Tamanho</td><td>Cor</td></tr>";
 					if(products.length){
 					    for (let i = page * pageSize; i < products.length && i < (page + 1) * pageSize;i++){
 							html += "<tr>";
@@ -78,11 +77,12 @@ $(function(){
 							html += "<td>"+products[i].color+"</td>";
 							html += "</tr>";
 						};
-						html += "</table>";
-						document.getElementById('main-product-tbody').innerHTML = html;
+						document.getElementById('main-product-tbl').innerHTML = html;
+						document.getElementById('main-product-div').style.display = 'block';
 					} else {
-						document.getElementById('main-product-tbody').innerHTML = html;
 						alert('Nenhum produto encontrado.');
+						document.getElementById('main-product-tbl').innerHTML = html;
+						document.getElementById('main-product-div').style.display = 'none';
 					};
 				    $('#productPageNumber').text('' + (page + 1) + ' de ' + Math.ceil(products.length / pageSize));
 				};
@@ -116,7 +116,7 @@ $(function(){
 		});
 	});
 
-	$('table').on('click', '#product-show-btn', function(){
+	$('#main-product-tbl').on('click', '#product-show-btn', function(){
 		let rowEl = $(this).closest('tr');
 		let cod = rowEl.find('#src_product_cod').text();
 

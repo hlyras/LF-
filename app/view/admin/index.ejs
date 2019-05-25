@@ -1,0 +1,39 @@
+<html>
+	<head>
+        <% include ../partials/head %>
+	</head>
+	<body>
+		<header>
+			<a href="/"><img src="/images/favicon.png" class="favicon"></a>
+			<div>
+    			<a onclick="let r = confirm('deseja sair?');if(r==true){window.location.href='/logout'}">Logout</a>
+			</div>
+		</header>
+		<section>
+			<div class="container">
+				<div class="box-2">
+                    <div class="menu-box">
+						<strong class="underline">Alterar privilégios de usuários</strong>
+						<span class="btn-menu" id="user-list-btn">Listar usuários</span>
+                    </div>
+                    <br>
+                    <div id="main-user-div" style="display: none">
+                    	<table id="main-user-tbl"></table>
+                    	<br>
+                    	<button id="userPrevious" class="button small alt" autocomplete="off" disabled>&lsaquo;&lsaquo;</button>
+	                    <span id="userPageNumber"></span>
+	                    <button id="userNext" class="button small alt" autocomplete="off" disabled>&rsaquo;&rsaquo;</button>
+                    </div>
+                    <div class="box-1" id="show-user-box" style="display: none">
+                    	<table id="show-user-tbl">
+                    		
+                    	</table>
+                    </div>
+                </div>
+			</div>
+		</section>
+	</body>
+	<footer>
+        <% include ../partials/footer %>
+	</footer>
+</html>

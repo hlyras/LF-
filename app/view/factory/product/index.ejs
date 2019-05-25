@@ -45,8 +45,7 @@
 					<input type="button" class="btn-generic-big" id="product-save-btn" value="Cadastrar">
 				</div>
 				<div class="box-2">
-					<strong class="underline">Produtos cadastrados</strong>
-					<br>
+					<strong class="underline">Produtos cadastrados</strong><br>
 					<select id="src_product_type" class="small-pattern-btn" autocomplete="off">
 						<option value="">Tipo</option>
 						<option value="Colete">Colete</option>
@@ -64,21 +63,13 @@
 					</select>
 					<input type="button" class="small-pattern-btn" id="product-filter-btn" value="Filtrar">
 					<br><br>
-					<table>
-						<tr>
-							<td>Cód</td>
-							<td>Tipo</td>
-							<td>Nome</td>
-							<td>Tamanho</td>
-							<td>Cor</td>
-						</tr>
-						<tbody id="main-product-tbody">
-						</tbody>
-					</table>
-					<br>
-					<button id="productPrevious" class="button small alt" autocomplete="off" disabled>&lsaquo;&lsaquo;</button>
-                    <span id="productPageNumber"></span>
-                    <button id="productNext" class="button small alt" autocomplete="off" disabled>&rsaquo;&rsaquo;</button>
+					<div id="main-product-div" style="display:none">
+						<table id="main-product-tbl"></table>
+						<br>
+						<button id="productPrevious" class="button small alt" autocomplete="off" disabled>&lsaquo;&lsaquo;</button>
+	                    <span id="productPageNumber"></span>
+	                    <button id="productNext" class="button small alt" autocomplete="off" disabled>&rsaquo;&rsaquo;</button>
+					</div>
 				</div>
 				<div class="box-1" id="show-product-box" style="display:none;"></div>
 			</div>
