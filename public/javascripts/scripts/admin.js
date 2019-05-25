@@ -85,7 +85,6 @@ $(function(){
 					return;
 				};
 
-
 				document.getElementById('main-user-div').style.display = 'none';
 				let html = "";
 				html += "<tr>";
@@ -99,11 +98,13 @@ $(function(){
 				html += "<td>"+response.user[0].acess+"</td>";
 				html += "<td><select id='src_user_newAcess'>\
 								<option value='gf'>Gerente</option>\
-								<option value='cf'>Coord.</option>\
-								<option value='cs'>Caixa.</option>\
-								<option value='vf'>C.vend</option>\
-								<option value='vf'>Vend</option>\
-								<option value='ef'>Estoq.</option>\
+								<option value='gs'>Gerente Loja</option>\
+								<option value='cf'>Coordenador</option>\
+								<option value='cs'>Caixa loja</option>\
+								<option value='vf'>Vendedor online</option>\
+								<option value='vs'>Vendedor loja</option>\
+								<option value='ef'>Estoquista.</option>\
+								<option value='a1'>Acesso geral.</option>\
 							</select></td>";
 				html += "<td><a id='user-updateAcess-btn'>Atualizar</a></td>";
 				html += "</tr>";

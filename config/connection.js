@@ -9,7 +9,7 @@ const db = async (query) => {
 			if(!err){
 				resolve(rows);
 			} else {
-				resolve(false);
+				reject(err);
 			};
 		});
 	});
