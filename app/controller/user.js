@@ -30,7 +30,6 @@ const userController = {
 		if(!await userController.verifyAcess(req, res, ['p1','g1','dv'])){
 			return res.send({ unauthorized: "Usuário não autorizado."});
 		};
-
 		let users = await User.list();
 		res.send({ users: users });
 	},
@@ -38,7 +37,6 @@ const userController = {
 		if(!await userController.verifyAcess(req, res, ['p1','g1','dv'])){
 			return res.send({ unauthorized: "Usuário não autorizado."});
 		};
-
 		let user = await User.findById(req.body.user_id);
 		res.send({ user: user });
 	}
