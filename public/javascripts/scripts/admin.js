@@ -116,15 +116,16 @@ $(function(){
 
 	$('#show-user-tbl').on('click', '#user-updateAcess-btn', function(){
 		let rowEl = $(this).closest('tr');
+		rowEl.find('#user-updateAcess-btn').css('pointerEvents', 'none');
 		let user_id = rowEl.find('#src_user_id').text();
 		let user_newAcess = rowEl.find('#src_user_newAcess').val();
 
 		$.ajax({
-			url: '/user/updateAcess',
+			url: '/admin/updateAcess',
 			method: 'post',
 			data: { 
-				user_id: id,
-				user_newAcess: newAcess
+				user_id: user_id,
+				user_newAcess: user_newAcess
 			},
 			success: function(response){
 				if(response.unauthorized){
@@ -133,9 +134,23 @@ $(function(){
 					return;
 				};
 
-				console.log(response);
+				if(response.msg){
+					alert(response.msg);
+					rowEl.find('#user-updateAcess-btn').css('pointerEvents', 'auto');
+					return;
+				};
 
-				// TERMINAR UPDATEACESS 
+				if(response.err){
+					alert(response.err);
+					rowEl.find('#user-updateAcess-btn').css('pointerEvents', 'auto');
+					return;
+				};
+
+				alert(response.done);
+
+				document.getElementById('show-user-box').style.display = 'none';
+				document.getElementById('show-user-tbl').innerHTML = "";
+				rowEl.find('#user-updateAcess-btn').css('pointerEvents', 'auto');
 			}
 		});
 	});

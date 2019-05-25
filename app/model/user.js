@@ -10,23 +10,19 @@ const User = function(){
 	this.acess;
 };
 
-User.list = async () => {
-	return new Promise(async (resolve) => {
-		let query = "SELECT * FROM lfsdb.users;";
-		let rows = await db(query);
-		resolve(rows);
-	});
+User.list = () => {
+	let query = "SELECT * FROM lfsdb.users;";
+	return db(query);
 };
 
-User.findById = async (id) => {
-	return new Promise(async (resolve) => {
-		let query = "SELECT * FROM lfsdb.users WHERE id='"+id+"';";
-		let row = await db(query);
-		resolve(row);
-	});
+User.findById = (id) => {
+	let query = "SELECT * FROM lfsdb.users WHERE id='"+id+"';";
+	return db(query);
 };
 
-// User.updateAcess = function(){
-// };
+User.updateAcess = (user) => {
+	let query = "UPDATE lfsdb.users SET acess='"+user.newAcess+"' WHERE id='"+user.id+"';";
+	return db(query);
+};
 
 module.exports = User;
