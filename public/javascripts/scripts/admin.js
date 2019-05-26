@@ -98,7 +98,7 @@ $(function(){
 				html += "<td>"+response.user[0].acess+"</td>";
 				html += "<td><select id='src_user_newAcess'>";
 				response.jobs.forEach((job) => {
-					html += "<option value='"+job.acess+"'>"+job.name+"</option>";
+					html += "<option value='"+job.code+"'>"+job.name+"</option>";
 				});
 				html += "</select></td>";
 				html += "<td><a id='user-updateAcess-btn'>Atualizar</a></td>";

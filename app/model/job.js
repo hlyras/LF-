@@ -1,27 +1,43 @@
 const Jobs = [
 	{
 		name: 'Suporte',
-		acess: 'spt'	
+		code: 'spt'	
 	},
 	{
 		name: 'Gerente Fábrica',
-		acess: 'grf'
+		code: 'grf'
 	},
 	{
 		name: 'Gerente Loja',
-		acess: 'grs'
+		code: 'grs'
 	},
 	{
 		name: 'Coordernador',
-		acess: 'crd'
+		code: 'crd'
+	},
+	{
+		name: 'Caixa',
+		code: 'etf'
+	},
+	{
+		name: 'Vendedor Loja',
+		code: 'etf'
+	},
+	{
+		name: 'Vendedor online',
+		code: 'etf'
+	},
+	{
+		name: 'Estoquista',
+		code: 'etf'
 	},
 	{
 		name: 'Acesso fábrica',
-		acess: 'aaf'
+		code: 'aaf'
 	},
 	{
 		name: 'Acesso loja',
-		acess: 'aas'
+		code: 'aas'
 	}
 ];
 
