@@ -1,3 +1,13 @@
+a {
+	text-decoration: none;
+	cursor: pointer;
+	color: black;
+}
+
+.link-generic {
+	text-decoration: underline;
+}
+
 .favicon {
 	border-radius: 3px;
 	width: 35px;
@@ -14,11 +24,6 @@
 	margin-bottom: 15px;
 	border-radius:3px;
 	box-sizing: border-box;
-}
-
-a {
-	text-decoration: none;
-	cursor: pointer;
 }
 
 .underline {
@@ -75,3 +80,6 @@ a {
 	border-radius: 3px;
 	border: 1px solid #e1e1e1;
 }
+
+
+git push umbler master
