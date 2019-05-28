@@ -28,19 +28,25 @@ passport.use(
         if (users.length) {
             return done(null, false, req.flash('signupMessage', 'Este usuário já existe.'));
         } else {
+
+
             let newUserMysql = {
                 name: req.body.name,
                 email: req.body.email,
                 username: username,
                 password: bcrypt.hashSync(password, null, null),
-                age: lib.convertDate(req.body.age)
+                birth: ""+req.body.day+"/"+req.body.month+"/"+req.body.year
+            };
+
+            if(!req.body.day || !req.body.month || !req.body.year){
+                newUserMysql.birth = "";
             };
             
-            let insertQuery = "INSERT INTO users ( name, email, username, password, age ) values ('"+newUserMysql.name+"', '"+newUserMysql.email+"', '"+newUserMysql.username+"', '"+newUserMysql.password+"', '"+newUserMysql.age+"')";
+            let insertQuery = "INSERT INTO users ( name, email, username, password, birth ) values ('"+newUserMysql.name+"', '"+newUserMysql.email+"', '"+newUserMysql.username+"', '"+newUserMysql.password+"', '"+newUserMysql.birth+"')";
             let result = await db(insertQuery);
             newUserMysql.id = result.insertId;
             
-            return done(null, newUserMysql);
+            return done(null, req.user);
         };
     })
 );

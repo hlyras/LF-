@@ -16,14 +16,13 @@ $(function(){
 				let users = response.users;
 
 				function paging(){
-					html = "<table><tr><td>Id</td><td>Nome</td><td>Username</td><td>Cargo</td></tr>";
+					html = "<table><tr><td>Id</td><td>Nome</td><td>Cargo</td></tr>";
 					if(users.length){
 					    for (let i = page * pageSize; i < users.length && i < (page + 1) * pageSize;i++){
 							html += "<tr>";
 							html += "<td id='src_user_id' hidden>"+users[i].id+"</td>";
-							html += "<td><a id='user-show-btn'>"+users[i].id+"</a></td>";
+							html += "<td id='user-show-btn'>"+users[i].id+"</td>";
 							html += "<td>"+users[i].name+"</td>";
-							html += "<td>"+users[i].username+"</td>";
 							html += "<td>"+users[i].job+"</td>";
 							html += "<td><a id='user-select-btn'>Alterar</a></td>";
 							html += "</tr>";
@@ -88,68 +87,30 @@ $(function(){
 				};
 
 				document.getElementById('main-user-div').style.display = 'none';
-				let html = "";
+				let html = "<table id='show-user-tbl'>";
 				html += "<tr>";
-				html += "<td>Id</td><td>Nome</td><td>username</td><td>Cargo</td><td>N. cargo</td>";
+				html += "<td>Id</td><td>Nome</td><td>username</td><td>E-mail</td><td>Cargo at.</td>";
 				html += "</tr>";
 				html += "<tr>";
 				html += "<td id='src_user_id' hidden>"+response.user[0].id+"</td>";
-				html += "<td><a id='user-show-btn'>"+response.user[0].id+"</a></td>";
+				html += "<td id='user-show-btn'>"+response.user[0].id+"</td>";
 				html += "<td>"+response.user[0].name+"</td>";
 				html += "<td>"+response.user[0].username+"</td>";
+				html += "<td>"+response.user[0].email+"</td>";
 				html += "<td>"+response.user[0].job+"</td>";
-				html += "<td><select id='src_user_newAcess'>";
+				html += "</tr>";
+				html += "</table><br>";
+				html += "<div class='menu-box'>"
+				html += "<h6 class='underline-generic'>Nova função</h6><br>"
+				html += "<select class='btn-generic-menu-medium' id='src_user_newAcess'>";
 				response.jobs.forEach((job) => {
 					html += "<option value='"+job.code+"'>"+job.name+"</option>";
 				});
-				html += "</select></td>";
-				html += "<td><a id='user-updateAcess-btn'>Att</a></td>";
-				html += "</tr>";
-				document.getElementById('show-user-tbl').innerHTML = html;
+				html += "</select>";
+				html += "<button id='user-updateAcess-btn' class='btn-generic-menu-medium'>Confirmar</button>";
+				html += "</div>"
+				document.getElementById('show-user-box').innerHTML = html;
 				document.getElementById('show-user-box').style.display = 'block';
-			}
-		});
-	});
-
-	$('#show-user-tbl').on('click', '#user-updateAcess-btn', function(){
-		let rowEl = $(this).closest('tr');
-		rowEl.find('#user-updateAcess-btn').css('pointerEvents', 'none');
-		let user_id = rowEl.find('#src_user_id').text();
-		let user_newAcess = rowEl.find('#src_user_newAcess').val();
-
-		$.ajax({
-			url: '/admin/updateAcess',
-			method: 'post',
-			data: { 
-				user_id: user_id,
-				user_newAcess: user_newAcess
-			},
-			success: function(response){
-				if(response.unauthorized){
-					alert(response.unauthorized);
-					window.location.href = '/login';
-					return;
-				};
-
-				if(response.msg){
-					alert(response.msg);
-					$('#user-list-btn').click();
-					rowEl.find('#user-updateAcess-btn').css('pointerEvents', 'auto');
-					return;
-				};
-
-				if(response.err){
-					alert(response.err);
-					rowEl.find('#user-updateAcess-btn').css('pointerEvents', 'auto');
-					return;
-				};
-
-				alert(response.done);
-
-				document.getElementById('show-user-box').style.display = 'none';
-				document.getElementById('show-user-tbl').innerHTML = "";
-				rowEl.find('#user-updateAcess-btn').css('pointerEvents', 'auto');
-				$('#user-list-btn').click();
 			}
 		});
 	});

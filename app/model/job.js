@@ -38,6 +38,10 @@ const Jobs = [
 	{
 		name: 'Acesso loja',
 		code: 'aas'
+	},
+	{
+		name: 'Sem acesso',
+		code: 'aaa'
 	}
 ];
 

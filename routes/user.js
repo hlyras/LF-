@@ -6,6 +6,7 @@ const userController = require('../app/controller/user');
 router.get('/', userController.verify, userController.index);
 router.get('/list', userController.list);
 router.post('/show', userController.show);
+router.post('/updateInfo', userController.updateInfo);
 
 router.post('/login', passport.authenticate('local-login', { 
 	failureRedirect: '/login',

@@ -12,7 +12,7 @@ const homeController = {
 	},
 	signup: async (req, res) => {
 		if(!await userController.verifyAcess(req, res, ['prp','grf','dvp'])){
-			return res.render('user/login', { message: "Usuário não autorizado, entre em contato com o administrador para realizar seu cadastro."});
+			return res.redirect('/login');
 		};
 		res.render('user/signup', { message: req.flash('signupMessage') });
 	},

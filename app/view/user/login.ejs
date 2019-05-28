@@ -12,15 +12,15 @@
                     <div class="box-1">
                         <form action="/user/login" method="post">
                             <div class="menu-box">
-                                <h4 class="underline">Faça seu login</h4>
+                                <h4 class="underline-title">Faça seu login</h4>
                                 <% if (message.length > 0) { %>
                                     <div class="alert-msg"><%= message %></div>
                                 <% } %>
-                                Username
-                                <input type="text" class="btn-generic-menu" name="username" autocomplete="off">
-                                Senha
-                                <input type="password" class="btn-generic-menu" name="password" autocomplete="off">
-                                <button type="submit" class="btn-generic-menu">Login</button>
+                                <p>Username</p>
+                                <input type="text" class="btn-generic-menu-big" name="username" autocomplete="off">
+                                <p>Senha</p>
+                                <input type="password" class="btn-generic-menu-big" name="password" autocomplete="off">
+                                <button type="submit" class="btn-generic-menu-big">Login</button>
                             </div>
                         </form>
                     </div>

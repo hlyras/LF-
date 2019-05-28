@@ -26,13 +26,13 @@ a {
 	box-sizing: border-box;
 }
 
-.underline {
+.underline-title {
 	display: inline-block;
 	position: relative;
 	margin-bottom: 20px;
 }
 
-.underline::after {
+.underline-title::after {
 	content: '';
 	height: 1px;
 	width: 100%;
@@ -42,32 +42,83 @@ a {
 	bottom: -10;
 }
 
+.underline-generic {
+	display: inline-block;
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.underline-generic::after {
+	content: '';
+	height: 1px;
+	width: 50%;
+	background-color: #e1e1e1;
+	position: absolute;
+	left: 25%;
+	bottom: -5;
+}
+
 .btn-generic-small {
-	width:100px;
+	width:75px;
 	height: 30px;
 	margin: auto;
 }
 
 .btn-generic-medium {
-	width:175px;
+	width:150px;
 	height: 30px;
 	margin: auto;
 }
 
 .btn-generic-big {
-	width:210px;
+	width:200px;
 	height: 30px;
 	margin: auto;
 }
 
-.btn-generic-menu {
+.btn-generic-date-day {
+	width: 50px;
+	height: 30px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.btn-generic-date-month {
+	width: 90px;
+	height: 30px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.btn-generic-date-year {
+	width: 70px;
+	height: 30px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.btn-generic-menu-small {
+	width:100px;
+	height: 30px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.btn-generic-menu-medium {
+	width:150px;
+	height: 30px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.btn-generic-menu-big {
 	width:200px;
 	height: 30px;
 	margin: auto;
 	margin-bottom: 10px;
 }
 
-.btn-menu {
+.span-menu {
 	border-radius: 3px;
 	padding-top: 5px;
 	padding-bottom: 5px;
@@ -75,7 +126,7 @@ a {
 	border: 1px solid #fff;
 }
 
-.btn-menu:hover {
+.span-menu:hover {
 	background-color: #f0f0f0;
 	border-radius: 3px;
 	border: 1px solid #e1e1e1;

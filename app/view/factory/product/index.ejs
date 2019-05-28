@@ -12,7 +12,7 @@
 		<section>
 			<div class="container">
 				<div class="box-2">
-					<strong class="underline">Cadastro de produtos</strong>
+					<strong class="underline-title">Cadastro de produtos</strong>
 					<br>
 					<input type="number" class="btn-generic-big" id="product_cod" placeholder="Cód do produto" min="1" max="9999" autocomplete="off">
 					<select id="product_type" class="btn-generic-big" autocomplete="off">
@@ -45,15 +45,15 @@
 					<input type="button" class="btn-generic-big" id="product-save-btn" value="Cadastrar">
 				</div>
 				<div class="box-2">
-					<strong class="underline">Produtos cadastrados</strong><br>
-					<select id="src_product_type" class="small-pattern-btn" autocomplete="off">
+					<strong class="underline-title">Produtos cadastrados</strong><br>
+					<select id="src_product_type" class="btn-generic-small" autocomplete="off">
 						<option value="">Tipo</option>
 						<option value="Colete">Colete</option>
 						<option value="Peça_mod">Peça modular</option>
 						<option value="Coldre">Coldre</option>
 						<option value="Bornal">Bornal</option>
 					</select>
-					<select id="src_product_color" class="small-pattern-btn" autocomplete="off">
+					<select id="src_product_color" class="btn-generic-small" autocomplete="off">
 						<option value="">Cor</option>
 						<option value="pt">Preto</option>
 						<option value="vd">Verde</option>
@@ -61,14 +61,14 @@
 						<option value="ptcamo">Preto camo</option>
 						<option value="vdcamo">Verde camo</option>
 					</select>
-					<input type="button" class="small-pattern-btn" id="product-filter-btn" value="Filtrar">
+					<input type="button" class="btn-generic-small" id="product-filter-btn" value="Filtrar">
 					<br><br>
 					<div id="main-product-div" style="display:none">
 						<table id="main-product-tbl"></table>
 						<br>
-						<button id="productPrevious" class="button small alt" autocomplete="off" disabled>&lsaquo;&lsaquo;</button>
+						<button id="productPrevious" autocomplete="off" disabled>&lsaquo;&lsaquo;</button>
 	                    <span id="productPageNumber"></span>
-	                    <button id="productNext" class="button small alt" autocomplete="off" disabled>&rsaquo;&rsaquo;</button>
+	                    <button id="productNext" autocomplete="off" disabled>&rsaquo;&rsaquo;</button>
 					</div>
 				</div>
 				<div class="box-1" id="show-product-box" style="display:none;"></div>

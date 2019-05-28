@@ -42,10 +42,23 @@ const userController = {
 		let user = await User.findById(req.body.user_id);
 		res.send({ user: user, jobs: Jobs });
 	},
-	update: async (req, res) => {
+	updateInfo: async (req, res) => {
 		if(!req.isAuthenticated()){
-			res.send({ msg: "Não autorizado" });
+			res.send({ unauthorized: "Não autorizado" });
 		};
+
+		const user = {
+			id: req.user.id,
+			email: req.body.email,
+			birth: req.body.birth
+		};
+
+		if(user.email){
+			if(await User.findByEmail(user)){ return res.send({ msg: "Este e-mail já está cadastrado." })};
+		};
+
+		let row = await User.updateInfo(user);
+		res.send({ done: "Dados atualizado." });
 	}
 };
 

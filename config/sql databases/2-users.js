@@ -3,7 +3,7 @@ CREATE TABLE `lfsdb`.`users` (
   `name` VARCHAR(45) NOT NULL,
   `job` VARCHAR(25) NOT NULL DEFAULT 'S/R',
   `email` VARCHAR(45) NOT NULL,
-  `age` VARCHAR(12) NOT NULL,
+  `birth` VARCHAR(17) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(60) NOT NULL,
   `acess` VARCHAR(3) NOT NULL DEFAULT 'aaa',
