@@ -6,16 +6,13 @@
         <div class="main">
             <header>
                 <a href="/"><img src="/images/favicon.png" class="favicon"></a>
-                <div>
-                    <a href="/signup">Signup</a>
-                </div>
             </header>
             <section>
                 <div class="container">
                     <div class="box-1">
                         <form action="/user/login" method="post">
                             <div class="menu-box">
-                                <h4 class="underline">Faça seu login ou <a class="link-generic" href="/signup">Cadastre-se</a></h4>
+                                <h4 class="underline">Faça seu login</h4>
                                 <% if (message.length > 0) { %>
                                     <div class="alert-msg"><%= message %></div>
                                 <% } %>

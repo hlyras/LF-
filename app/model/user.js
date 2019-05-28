@@ -21,7 +21,7 @@ User.findById = (id) => {
 };
 
 User.updateAcess = (user) => {
-	let query = "UPDATE lfsdb.users SET acess='"+user.newAcess+"' WHERE id='"+user.id+"';";
+	let query = "UPDATE lfsdb.users SET acess='"+user.newAcess+"', job='"+user.newJob+"' WHERE id='"+user.id+"';";
 	return db(query);
 };
 

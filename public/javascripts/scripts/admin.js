@@ -16,7 +16,7 @@ $(function(){
 				let users = response.users;
 
 				function paging(){
-					html = "<table><tr><td>Id</td><td>Nome</td><td>Username</td><td>Acesso</td></tr>";
+					html = "<table><tr><td>Id</td><td>Nome</td><td>Username</td><td>Cargo</td></tr>";
 					if(users.length){
 					    for (let i = page * pageSize; i < users.length && i < (page + 1) * pageSize;i++){
 							html += "<tr>";
@@ -24,17 +24,19 @@ $(function(){
 							html += "<td><a id='user-show-btn'>"+users[i].id+"</a></td>";
 							html += "<td>"+users[i].name+"</td>";
 							html += "<td>"+users[i].username+"</td>";
-							html += "<td>"+users[i].acess+"</td>";
+							html += "<td>"+users[i].job+"</td>";
 							html += "<td><a id='user-select-btn'>Alterar</a></td>";
 							html += "</tr>";
 						};
 						html += "</table>";
 						document.getElementById('main-user-tbl').innerHTML = html;
 						document.getElementById('main-user-div').style.display = 'block';
+						document.getElementById('show-user-box').style.display = 'none';
 					} else {
 						alert('Nenhum usuário encontrado.');
 						document.getElementById('main-user-tbl').innerHTML = html;
 						document.getElementById('main-user-div').style.display = 'none';
+						document.getElementById('show-user-box').style.display = 'none';
 					};
 				    $('#userPageNumber').text('' + (page + 1) + ' de ' + Math.ceil(users.length / pageSize));
 				};
@@ -68,7 +70,7 @@ $(function(){
 		});
 	});
 
-	$('table').on('click', '#user-select-btn', function(){
+	$('#main-user-tbl').on('click', '#user-select-btn', function(){
 		let rowEl = $(this).closest('tr');
 		let user_id = rowEl.find('#src_user_id').text();
 
@@ -88,20 +90,20 @@ $(function(){
 				document.getElementById('main-user-div').style.display = 'none';
 				let html = "";
 				html += "<tr>";
-				html += "<td>Id</td><td>Nome</td><td>username</td><td>Acesso</td><td>Novo ac.</td>";
+				html += "<td>Id</td><td>Nome</td><td>username</td><td>Cargo</td><td>N. cargo</td>";
 				html += "</tr>";
 				html += "<tr>";
 				html += "<td id='src_user_id' hidden>"+response.user[0].id+"</td>";
 				html += "<td><a id='user-show-btn'>"+response.user[0].id+"</a></td>";
 				html += "<td>"+response.user[0].name+"</td>";
 				html += "<td>"+response.user[0].username+"</td>";
-				html += "<td>"+response.user[0].acess+"</td>";
+				html += "<td>"+response.user[0].job+"</td>";
 				html += "<td><select id='src_user_newAcess'>";
 				response.jobs.forEach((job) => {
 					html += "<option value='"+job.code+"'>"+job.name+"</option>";
 				});
 				html += "</select></td>";
-				html += "<td><a id='user-updateAcess-btn'>Atualizar</a></td>";
+				html += "<td><a id='user-updateAcess-btn'>Att</a></td>";
 				html += "</tr>";
 				document.getElementById('show-user-tbl').innerHTML = html;
 				document.getElementById('show-user-box').style.display = 'block';
@@ -131,6 +133,7 @@ $(function(){
 
 				if(response.msg){
 					alert(response.msg);
+					$('#user-list-btn').click();
 					rowEl.find('#user-updateAcess-btn').css('pointerEvents', 'auto');
 					return;
 				};
@@ -146,6 +149,7 @@ $(function(){
 				document.getElementById('show-user-box').style.display = 'none';
 				document.getElementById('show-user-tbl').innerHTML = "";
 				rowEl.find('#user-updateAcess-btn').css('pointerEvents', 'auto');
+				$('#user-list-btn').click();
 			}
 		});
 	});

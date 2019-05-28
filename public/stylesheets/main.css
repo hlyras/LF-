@@ -91,9 +91,13 @@ table {
 table tr td {
 	text-align: center;
 	padding: 2px;
-	font-size: 12px;
+	font-size: 10px;
 	word-break: break-all;
 	border: 1px solid #ccc;
+}
+
+table input, select, button {
+	width: 50px;
 }
 
 table a {

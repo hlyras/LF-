@@ -16,11 +16,18 @@ const adminController = {
 		let user = {
 			id: req.body.user_id,
 			newAcess: req.body.user_newAcess,
+			newJob: undefined
 		};
 
 		var row = await User.findById(user.id);
 		if(row[0].acess=='prp' || row[0].acess=='dvp'){
 			return res.send({ msg: 'Você não tem permissão para alterar os privilégios deste usuário.' })
+		};
+
+		for(i in Jobs){
+			if(Jobs[i].code==user.newAcess){
+				user.newJob = Jobs[i].name;
+			};
 		};
 
 		if(!await User.updateAcess(user)){

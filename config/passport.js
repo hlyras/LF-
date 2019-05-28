@@ -2,6 +2,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt-nodejs');
 const db = require('./connection');
+const lib = require('./lib');
 
 passport.serializeUser(async (user, done) => {
     done(null, user.id);
@@ -32,7 +33,7 @@ passport.use(
                 email: req.body.email,
                 username: username,
                 password: bcrypt.hashSync(password, null, null),
-                age: req.body.age
+                age: lib.convertDate(req.body.age)
             };
             
             let insertQuery = "INSERT INTO users ( name, email, username, password, age ) values ('"+newUserMysql.name+"', '"+newUserMysql.email+"', '"+newUserMysql.username+"', '"+newUserMysql.password+"', '"+newUserMysql.age+"')";

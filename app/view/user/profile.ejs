@@ -11,53 +11,50 @@
 		</header>
 		<section>
 			<div class="container">
-				<div class="box-1">
-					<table border='1'>
-						<tr>
-							<td>Nome</td>
-							<td>E-mail</td>
-							<td>Idade</td>
-							<td>Acesso</td>
-						</tr>
-						<tr>
-							<td><%= user.name%></td>
-							<td><%= user.email%></td>
-							<td><%= user.age%></td>
-							<td><%= user.acess%></td>
-						</tr>
-					</table>
-				</div>
 				<div class="box-2">
 					<table border='1'>
+						<h1 class='underline'>Bem vindo <%= user.name %></h1>
 						<tr>
 							<td>Nome</td>
+							<td>Profissão</td>
 							<td>E-mail</td>
 							<td>Idade</td>
-							<td>Acesso</td>
 						</tr>
 						<tr>
+							<td id="src_user_id" hidden><%= user.id %></td>
 							<td><%= user.name%></td>
+							<td><%= user.job%></td>
 							<td><%= user.email%></td>
 							<td><%= user.age%></td>
-							<td><%= user.acess%></td>
 						</tr>
 					</table>
-				</div>
-				<div class="box-2">
-					<table border='1'>
-						<tr>
-							<td>Nome</td>
-							<td>E-mail</td>
-							<td>Idade</td>
-							<td>Acesso</td>
-						</tr>
-						<tr>
-							<td><%= user.name%></td>
-							<td><%= user.email%></td>
-							<td><%= user.age%></td>
-							<td><%= user.acess%></td>
-						</tr>
-					</table>
+					<br>
+					<div class="box-1">
+						<p class="underline">Atualizar</p><br>
+						<button class="btn-generic-small" id="user-editInfo-btn">Info</button>
+						<button class="btn-generic-small" id="user-editPassword-btn">Senha</button>
+						<div class="box-1" id="user-editInfo-frm" style="display:none">
+							<div class="menu-box">
+								<h6 class="underline">Atualizar Informações</h6><br>
+								E-mail
+								<input type="text" class="btn-generic-menu" id="src_user_newEmail">
+								Idade
+
+								<input type="date" class="btn-generic-menu" id="src_user_newBirth" autocomplete="off" value='0'>
+								<button class="btn-generic-menu" id="user-updateInfo-btn">Atualizar</button>
+							</div>
+						</div>
+						<div class="box-1" id="user-editPassword-frm" style="display:none">
+							<div class="menu-box" >
+								<h6 class="underline">Atualizar senha</h6><br>
+								Senha
+								<input type="password" class="btn-generic-menu" id="newPassword" maxlength="45" autocomplete="off">
+								Confirmar senha
+								<input type="password" class="btn-generic-menu" id="confirmNewPassword" maxlength="45" autocomplete="off">
+								<button class="btn-generic-menu" id="user-updateInfo-btn">Atualizar</button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

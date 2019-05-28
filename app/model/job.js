@@ -17,15 +17,15 @@ const Jobs = [
 	},
 	{
 		name: 'Caixa',
-		code: 'etf'
+		code: 'cxs'
 	},
 	{
 		name: 'Vendedor Loja',
-		code: 'etf'
+		code: 'vds'
 	},
 	{
 		name: 'Vendedor online',
-		code: 'etf'
+		code: 'vdo'
 	},
 	{
 		name: 'Estoquista',

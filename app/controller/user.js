@@ -41,6 +41,11 @@ const userController = {
 
 		let user = await User.findById(req.body.user_id);
 		res.send({ user: user, jobs: Jobs });
+	},
+	update: async (req, res) => {
+		if(!req.isAuthenticated()){
+			res.send({ msg: "Não autorizado" });
+		};
 	}
 };
 
