@@ -1,6 +1,6 @@
 $(function(){
 	$("#product-save-btn").on('click', function(){
-		document.getElementById("product-save-btn").disabled = true;
+		let btn = $(this);btn.attr('disabled', true);
 		let cod = document.getElementById('product_cod').value;
 		let name = document.getElementById('product_name').value;
 		let type = document.getElementById('product_type').value;
@@ -26,7 +26,7 @@ $(function(){
 				
 				if(response.msg){
 					alert(response.msg);
-					document.getElementById("product-save-btn").disabled = false;
+					btn.attr('disabled', false);
 					return;
 				};
 
@@ -36,13 +36,13 @@ $(function(){
 				let type = document.getElementById('product_type').value = "";
 				let color = document.getElementById('product_color').value = "";
 				let size = document.getElementById('product_size').value = "";
-				document.getElementById("product-save-btn").disabled = false;
+				btn.attr('disabled', false);
 			}
 		});
 	});
 
 	$("#product-filter-btn").on('click', function(){
-		document.getElementById("product-filter-btn").disabled = true;
+		let btn = $(this);btn.attr('disabled', true);
 		let type = document.getElementById('src_product_type').value;
 		let color = document.getElementById('src_product_color').value;
 
@@ -87,7 +87,7 @@ $(function(){
 				    $('#productPageNumber').text('' + (page + 1) + ' de ' + Math.ceil(products.length / pageSize));
 				};
 
-				document.getElementById("product-filter-btn").disabled = false;
+				btn.attr('disabled', false);
 
 				function saleButtonsPaging(){
 				    $('#productNext').prop('disabled', products.length <= pageSize || page >= products.length / pageSize - 1);
@@ -117,6 +117,7 @@ $(function(){
 	});
 
 	$('#main-product-tbl').on('click', '#product-show-btn', function(){
+		let btn = $(this);btn.css('pointerEvents', 'none');
 		let rowEl = $(this).closest('tr');
 		let cod = rowEl.find('#src_product_cod').text();
 
@@ -151,6 +152,7 @@ $(function(){
 				html += "</table>";
 				document.getElementById('show-product-box').innerHTML = html;
 				document.getElementById('show-product-box').style.display = 'block';
+				btn.css('pointerEvents', 'auto');
 			}
 		});
 	});

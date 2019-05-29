@@ -7,7 +7,7 @@ const User = function(){
 	this.username;
 	this.password;
 	this.birth;
-	this.acess;
+	this.access;
 };
 
 User.list = () => {
@@ -30,8 +30,13 @@ User.findByEmail = (user) => {
 	return db(query);
 };
 
-User.updateAcess = (user) => {
-	let query = "UPDATE lfsdb.users SET acess='"+user.newAcess+"', job='"+user.newJob+"' WHERE id='"+user.id+"';";
+User.updateAccess = (user) => {
+	let query = "UPDATE lfsdb.users SET access='"+user.newAccess+"', job='"+user.newJob+"' WHERE id='"+user.id+"';";
+	return db(query);
+};
+
+User.updatePassword = (user) => {
+	let query = "UPDATE lfsdb.users SET password='"+user.password+"' WHERE id='"+user.id+"';";
 	return db(query);
 };
 

@@ -1,5 +1,6 @@
 const User = require('../model/user');
 const Jobs = require('../model/job');
+const bcrypt = require('bcrypt-nodejs');
 
 const userController = {
 	index: (req, res) => {
@@ -9,10 +10,10 @@ const userController = {
 		if (req.isAuthenticated()){ return next() };
 		res.redirect('/login');
 	},
-	verifyAcess: async (req, res, acess) => {
+	verifyAccess: async (req, res, access) => {
 		if(req.isAuthenticated()){
-			for(let i in acess){
-				if(acess[i]==req.user.acess){
+			for(let i in access){
+				if(access[i]==req.user.access){
 					return true;
 				};
 			};
@@ -28,14 +29,14 @@ const userController = {
 		res.redirect('/');
 	},
 	list: async (req, res) => {
-		if(!await userController.verifyAcess(req, res, ['prp','grf','dvp'])){
+		if(!await userController.verifyAccess(req, res, ['prp','grf','dvp'])){
 			return res.send({ unauthorized: "Usuário não autorizado."});
 		};
 		let users = await User.list();
 		res.send({ users: users });
 	},
 	show: async (req, res) => {
-		if(!await userController.verifyAcess(req, res, ['prp','grf','dvp'])){
+		if(!await userController.verifyAccess(req, res, ['prp','grf','dvp'])){
 			return res.send({ unauthorized: "Usuário não autorizado."});
 		};
 
@@ -49,16 +50,35 @@ const userController = {
 
 		const user = {
 			id: req.user.id,
-			email: req.body.email,
-			birth: req.body.birth
+			email: req.body.user_email,
+			birth: req.body.user_birth
 		};
 
 		if(user.email){
-			if(await User.findByEmail(user)){ return res.send({ msg: "Este e-mail já está cadastrado." })};
+			var row = await User.findByEmail(user);
+			console.log(row);
+			if(row.length){ return res.send({ msg: "Este e-mail já está cadastrado." })};
 		};
 
-		let row = await User.updateInfo(user);
-		res.send({ done: "Dados atualizado." });
+		row = await User.updateInfo(user);
+		res.send({ done: "Informações atualizadas com sucesso." });
+	},
+	updatePassword: async (req, res) => {
+		if(!req.isAuthenticated()){
+			res.send({ unauthorized: "Não autorizado" });
+		};
+
+		if(!req.body.user_password){
+			return res.send({ msg: 'Os campos devem ser preenchidos' });
+		};
+
+		const user = {
+			id: req.user.id,
+			password: bcrypt.hashSync(req.body.user_password, null, null) 
+		};
+
+		let row = await User.updatePassword(user);
+		res.send({ done: "Senha alterada com sucesso." });
 	}
 };
 

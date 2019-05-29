@@ -6,7 +6,7 @@ CREATE TABLE `lfsdb`.`users` (
   `birth` VARCHAR(17) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(60) NOT NULL,
-  `acess` VARCHAR(3) NOT NULL DEFAULT 'aaa',
+  `access` VARCHAR(3) NOT NULL DEFAULT 'aaa',
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),

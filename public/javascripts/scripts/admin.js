@@ -1,6 +1,6 @@
 $(function(){
 	$("#user-list-btn").on('click', function(){
-		document.getElementById("user-list-btn").disabled = true;
+		let btn = $(this);btn.attr('disabled', true);
 		$.ajax({
 			url: '/user/list',
 			method: 'get',
@@ -40,7 +40,7 @@ $(function(){
 				    $('#userPageNumber').text('' + (page + 1) + ' de ' + Math.ceil(users.length / pageSize));
 				};
 
-				document.getElementById("user-list-btn").disabled = false;
+				btn.attr('disabled', false);
 
 				function saleButtonsPaging(){
 				    $('#userNext').prop('disabled', users.length <= pageSize || page >= users.length / pageSize - 1);
@@ -70,6 +70,7 @@ $(function(){
 	});
 
 	$('#main-user-tbl').on('click', '#user-select-btn', function(){
+		let btn = $(this);btn.css('pointerEvents', 'none');
 		let rowEl = $(this).closest('tr');
 		let user_id = rowEl.find('#src_user_id').text();
 
@@ -102,15 +103,51 @@ $(function(){
 				html += "</table><br>";
 				html += "<div class='menu-box'>"
 				html += "<h6 class='underline-generic'>Nova função</h6><br>"
-				html += "<select class='btn-generic-menu-medium' id='src_user_newAcess'>";
+				html += "<select class='btn-generic-menu-medium' id='src_user_newAccess'>";
 				response.jobs.forEach((job) => {
 					html += "<option value='"+job.code+"'>"+job.name+"</option>";
 				});
 				html += "</select>";
-				html += "<button id='user-updateAcess-btn' class='btn-generic-menu-medium'>Confirmar</button>";
+				html += "<button id='user-updateAccess-btn' class='btn-generic-menu-medium'>Confirmar</button>";
 				html += "</div>"
 				document.getElementById('show-user-box').innerHTML = html;
 				document.getElementById('show-user-box').style.display = 'block';
+				btn.css('pointerEvents', 'auto');
+			}
+		});
+	});
+
+	$('#show-user-box').on('click', '#user-updateAccess-btn', function(){
+		let btn = $(this);btn.attr('disabled', true);
+		let rowEl = $(this).closest('#show-user-box');
+		let user_id = rowEl.find('#src_user_id').text();
+		let user_newAccess = rowEl.find('#src_user_newAccess').val();
+
+		$.ajax({
+			url: '/admin/updateUserAccess',
+			method: 'post',
+			data: { 
+				user_id: user_id,
+				user_newAccess: user_newAccess
+			},
+			success: function(response){
+				if(response.unauthorized){
+					alert(response.unauthorized);
+					window.location.href = '/login';
+					return;
+				};
+
+				if(response.msg){
+					alert(response.msg);
+					btn.attr('disabled', false);
+					return;
+				};
+
+				alert(response.done);
+
+				document.getElementById('show-user-box').style.display = 'none';
+				document.getElementById('show-user-tbl').innerHTML = "";
+				btn.attr('disabled', false);
 			}
 		});
 	});
