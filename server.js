@@ -1,15 +1,19 @@
 var express = require('express');
 var session  = require('express-session');
 var path = require('path');
+
+var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
+require('./config/socketio')(io);
+
 var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var flash = require('connect-flash');
 
-var routes = require('./routes/index');
-
-var app = express();
 
 var passport = require('./config/passport');
 
@@ -33,10 +37,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+var routes = require('./routes/index');
+
 app.use('/', routes);
 
 app.use(function(req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+server.listen(3000, () => {
+	console.log('server listening on port 3000');
+});

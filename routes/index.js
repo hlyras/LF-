@@ -8,6 +8,8 @@ router.get('/login', homeController.login);
 router.get('/signup', homeController.signup);
 router.get('/logout', homeController.logout);
 
+router.get('/support', homeController.support);
+
 router.use('/user', require('./user'));
 router.use('/admin', require('./admin'));
 router.use('/factory', require('./factory'));

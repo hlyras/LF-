@@ -51,4 +51,14 @@ User.updateInfo = (user) => {
 	return db(query);
 };
 
+User.supportConnect = (id) => {
+	let query = "UPDATE lfsdb.users SET support='connected' WHERE id='"+id+"';";
+	return db(query);
+};
+
+User.supportDisconnect = (id) => {
+	let query = "UPDATE lfsdb.users SET support='disconnected' WHERE id='"+id+"';";
+	return db(query);
+};
+
 module.exports = User;

@@ -17,4 +17,6 @@ const db = async (query) => {
 	});
 };
 
+db("UPDATE lfsdb.users set support='disconnected'");
+
 module.exports = db;

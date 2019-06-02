@@ -46,6 +46,10 @@ passport.use(
             let result = await db(insertQuery);
             newUserMysql.id = result.insertId;
             
+            //creating chat to acess suport
+            let createChat = "CREATE TABLE lfsdb.room"+newUserMysql.id+" (id INT NOT NULL AUTO_INCREMENT, user VARCHAR(45) NOT NULL, message VARCHAR(255) NOT NULL, PRIMARY KEY (id), UNIQUE INDEX id_UNIQUE (id ASC));";
+            await db(createChat);
+            
             return done(null, req.user);
         };
     })

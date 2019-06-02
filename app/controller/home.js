@@ -1,3 +1,4 @@
+const User = require('../model/user');
 const userController = require('./user');
 
 const homeController = {
@@ -19,6 +20,13 @@ const homeController = {
 	logout: (req, res) => {
 		req.logout();
 		res.redirect('/');
+	},
+	support: async (req, res) => {
+		if(!req.isAuthenticated()){
+			return res.redirect('/login');
+		};
+
+		res.render('support', { user: req.user, room: '' });
 	}
 };
 

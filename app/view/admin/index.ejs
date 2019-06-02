@@ -28,6 +28,29 @@
                     <div class="box-1" id="show-user-box" style="display: none">
                     </div>
                 </div>
+                <div class="box-2">
+					<strong class="underline-title">Usuários em contato com suporte.</strong>
+                    <table>
+                    	<tr>
+                    		<td>Nome</td>
+                    		<td>Username</td>
+                    		<td>Status</td>
+                    	</tr>
+                    	<% for(i in users){ %>
+                    	<% if(users[i].support=='connected'){ %>
+                		<form action='/admin/support' method='post'>
+	                    	<tr>
+	                    		<td hidden><input name="room" value="<%= users[i].id %>"></td>
+	                    		<td><%= users[i].name %></td>
+	                    		<td><%= users[i].username %></td>
+	                    		<td><%= users[i].support %></td>
+	                    		<td><button type='submit'>Entrar</button></td>
+	                    	</tr>
+                		</form>
+                    	<% } %>
+                    	<% } %>
+                    </table>
+                </div>
 			</div>
 		</section>
 	</body>

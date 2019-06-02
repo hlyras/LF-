@@ -4,10 +4,13 @@ const Jobs = require('../model/job');
 
 const adminController = {
 	index: async (req, res) => {
-		if(!await userController.verifyAccess(req, res, ['prp','dvp'])){
+		if(!await userController.verifyAccess(req, res, ['prp','dvp','spt'])){
 			return res.redirect('/login');
 		};
-		res.render('admin/index');
+
+		let users = await User.list();
+
+		res.render('admin/index', { users: users });
 	},
 	updateUserAccess: async (req, res) => {
 		if(!await userController.verifyAccess(req, res, ['prp','dvp'])){
@@ -31,10 +34,17 @@ const adminController = {
 		};
 
 		if(!await User.updateAccess(user)){
-			return res.send({ err: 'Ocorreu um erro, favor contatar o suporte'});
+			return res.send({ err: 'Ocorreu um erro, favor contatar o supporte'});
 		};
 
 		res.send({ done: "Privilégio atualizado com sucesso." });
+	},
+	support: async (req, res) => {
+		if(!await userController.verifyAccess(req, res, ['prp','dvp','spt'])){
+			return res.redirect('/login');
+		};
+
+		res.render('support', { user: req.user, room: req.body.room });
 	}
 };
 
