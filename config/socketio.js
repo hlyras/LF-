@@ -1,4 +1,4 @@
-let User = require('../app/model/user');
+const User = require('../app/model/user');
 
 module.exports = function(io) {
 	io.of('/support').on('connection', (socket) => {
@@ -11,9 +11,24 @@ module.exports = function(io) {
 			await User.supportConnect(socket.user_id);
 			console.log('user '+socket.user_name+' has connected!');
 			
-			socket.join(socket.room, () => {
+			socket.join(socket.room, async () => {
 				socket.broadcast.to(socket.room).emit('new user', socket.user_name+' entrou na sala.');
+				let messages = await User.loadMessages(socket.room);
+				socket.emit('previous messages', messages);
 				socket.emit('connected', 'Bem vindo '+socket.user_name+"!");
+
+				socket.on('open service desk call', async () => {
+					await User.openServiceDeskCall(socket.user_id);
+				});
+
+				socket.on('close service desk call', async () => {
+					await User.closeServiceDeskCall(socket.room);
+				});
+
+				socket.on('send message', async (data) => {
+					socket.broadcast.to(socket.room).emit('received message', data);
+					await User.saveMessage(data, socket.room);
+				});
 
 				socket.on('disconnect', async () => {
 					console.log('user '+socket.user_name+' has disconnected!');
@@ -23,6 +38,5 @@ module.exports = function(io) {
 				});
 			});
 		});
-
 	});
 };

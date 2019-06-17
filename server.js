@@ -1,21 +1,20 @@
-var express = require('express');
-var session  = require('express-session');
-var path = require('path');
+const express = require('express');
+const session  = require('express-session');
+const path = require('path');
 
-var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
+const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 
 require('./config/socketio')(io);
 
-var favicon = require('static-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var flash = require('connect-flash');
+const favicon = require('static-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const flash = require('connect-flash');
 
-
-var passport = require('./config/passport');
+const passport = require('./config/passport');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app/view'));
@@ -37,7 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-var routes = require('./routes/index');
+const routes = require('./routes/index');
 
 app.use('/', routes);
 

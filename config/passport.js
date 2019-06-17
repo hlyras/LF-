@@ -9,7 +9,7 @@ passport.serializeUser(async (user, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
-    let query = "SELECT * FROM users WHERE id = '"+id+"';";
+    const query = "SELECT * FROM users WHERE id = '"+id+"';";
     let user = await db(query);
     done(null, user[0]);
 });
@@ -22,7 +22,7 @@ passport.use(
         passReqToCallback : true
     },
     async (req, username, password, done) => {
-        let query = "SELECT * FROM users WHERE username='"+username+"' OR email='"+req.body.email+"';";
+        const query = "SELECT * FROM users WHERE username='"+username+"' OR email='"+req.body.email+"';";
         let users = await db(query);
         
         if (users.length) {
@@ -30,7 +30,7 @@ passport.use(
         } else {
 
 
-            let newUserMysql = {
+            const newUserMysql = {
                 name: req.body.name,
                 email: req.body.email,
                 username: username,
@@ -42,12 +42,12 @@ passport.use(
                 newUserMysql.birth = "";
             };
             
-            let insertQuery = "INSERT INTO users ( name, email, username, password, birth ) values ('"+newUserMysql.name+"', '"+newUserMysql.email+"', '"+newUserMysql.username+"', '"+newUserMysql.password+"', '"+newUserMysql.birth+"')";
+            const insertQuery = "INSERT INTO users ( name, email, username, password, birth ) values ('"+newUserMysql.name+"', '"+newUserMysql.email+"', '"+newUserMysql.username+"', '"+newUserMysql.password+"', '"+newUserMysql.birth+"')";
             let result = await db(insertQuery);
             newUserMysql.id = result.insertId;
             
             //creating chat to acess suport
-            let createChat = "CREATE TABLE lfsdb.room"+newUserMysql.id+" (id INT NOT NULL AUTO_INCREMENT, user VARCHAR(45) NOT NULL, message VARCHAR(255) NOT NULL, PRIMARY KEY (id), UNIQUE INDEX id_UNIQUE (id ASC));";
+            const createChat = "CREATE TABLE lfsdb.room"+newUserMysql.id+" (id INT NOT NULL AUTO_INCREMENT, user VARCHAR(45) NOT NULL, message VARCHAR(255) NOT NULL, PRIMARY KEY (id), UNIQUE INDEX id_UNIQUE (id ASC));";
             await db(createChat);
             
             return done(null, req.user);
@@ -63,7 +63,7 @@ passport.use(
         passReqToCallback : true
     },
     async (req, username, password, done) => {
-        let query = "SELECT * FROM users WHERE username = '"+username+"';";
+        const query = "SELECT * FROM users WHERE username = '"+username+"';";
         let users = await db(query);
         
         if (!users.length){
